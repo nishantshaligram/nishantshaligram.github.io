@@ -1,5 +1,4 @@
-
-
+// Hamburger Click - Navigation Open
 const hamburger = document.getElementById("hamburger");
 const navbar = document.querySelector(".navigation-top");
 const body = document.querySelector("body");
@@ -16,11 +15,36 @@ hamburger.onclick = () => {
     }
 }
 
+// Theme mode switch click - Change theme
+const settings = localStorage;
 const theme_switch = document.getElementById("theme-switch");
+getThemeSettings = () => {
+    var result = settings.getItem("theme-mode");
+    return result;
+}
+setThemeSettings = (value) => {
+    settings.setItem("theme-mode",value);
+}
+window.onload = () => {
+    const theme_mode = getThemeSettings();
+    if( theme_mode === "light"){
+        if(body.classList.contains("bg-dark")){
+            body.classList.remove("bg-dark");
+            theme_switch.checked = false;
+        }
+    }else if( theme_mode === "dark" ){
+        if(!body.classList.contains("bg-dark")){
+            body.classList.add("bg-dark");
+            theme_switch.checked = true;
+        }
+    }
+}
 theme_switch.onchange = (value) => {
     if(body.classList.contains("bg-dark")){
         body.classList.remove("bg-dark");
+        setThemeSettings("light");
     }else {
         body.classList.add("bg-dark");
+        setThemeSettings("dark");
     }
 }
