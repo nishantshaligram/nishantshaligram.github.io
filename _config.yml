@@ -1,6 +1,8 @@
 collections:
   authors:
     output: true
+  courses:
+    output: true
 
 defaults:
   - scope:
@@ -10,10 +12,17 @@ defaults:
       layout: "author"
   - scope:
       path: ""
+      type: "courses"
+    values:
+      layout: "course"
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: "post"
+      is_post: true
   - scope:
       path: ""
     values:
       layout: "default"
+      is_page: true

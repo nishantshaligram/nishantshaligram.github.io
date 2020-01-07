@@ -22,6 +22,12 @@ h5 { font-size: 18px; font-weight: 700; }
 
 h6 { font-size: 14px; font-weight: 700; }
 
+ul, ol { padding-left: 24px; margin-bottom: 20px; }
+
+ul li, ol li { margin-bottom: 8px; }
+
+ul a, ol a { color: #ff004c; }
+
 /*---------------------------- Global CSS ----------------------------*/
 html, body { background-color: #ffffff; color: #0e0e0e; border-color: #0e0e0e; transition: all 0.4s ease-in; }
 
@@ -149,14 +155,46 @@ input:checked + .slider:before { -webkit-transform: translateX(28px); -ms-transf
 /*------------------------------ Layout -------------------------------*/
 .site-content { padding-top: 50px; padding-bottom: 50px; }
 
-.site-content .content-area { width: 65%; padding-left: 15px; padding-right: 15px; }
+.site-content .content-area { width: 100%; padding-left: 15px; padding-right: 15px; }
 
-.site-content .widget-area { width: 35%; padding-left: 15px; padding-right: 15px; }
+.site-content .widget-area { width: 100%; padding-left: 15px; padding-right: 15px; }
+
+@media (min-width: 992px) { body.blog .content-area, body.post .content-area { width: 65%; padding-left: 15px; padding-right: 15px; }
+  body.blog .widget-area, body.post .widget-area { width: 35%; padding-left: 15px; padding-right: 15px; } }
 
 /*---------------------------- Post -----------------------------*/
-.post { display: block; padding: 15px 18px; margin-bottom: 20px; border: 1px solid rgba(255, 0, 76, 0.5); border-radius: 10px; box-shadow: 0px 3px 6px rgba(255, 0, 76, 0.2); }
+ul.post-list { list-style: none; padding-left: 0px; margin-bottom: 0px; }
 
-.post .post-title { padding-top: 0; color: #ff004c; }
+ul.post-list > li { width: 100%; }
+
+ul.post-list > li .post { display: block; margin-bottom: 50px; border: 1px solid rgba(255, 0, 76, 0.5); border-radius: 10px; position: relative; }
+
+ul.post-list > li .post.post:hover, ul.post-list > li .post.post:focus { box-shadow: 0px 3px 6px rgba(255, 0, 76, 0.2); transition: box-shadow 0.4s ease-in; }
+
+ul.post-list > li .post .post-thumbnail { width: 100%; height: auto; }
+
+ul.post-list > li .post .post-wrapper { padding: 20px 24px; }
+
+ul.post-list > li .post .post-wrapper .post-title { padding-top: 0; display: block; font-size: 21px; line-height: 1.2; font-weight: 700; color: #ff004c; }
+
+ul.post-list > li .post .post-wrapper .post-title:hover, ul.post-list > li .post .post-wrapper .post-title:focus { color: #747474; }
+
+ul.post-list > li .post .post-wrapper ul.post-meta { list-style: none; padding-left: 0px; margin-bottom: 20px; }
+
+ul.post-list > li .post .post-wrapper ul.post-meta > li { margin-bottom: 10px; font-size: 12px; font-weight: 400; color: #747474; vertical-align: middle; }
+
+ul.post-list > li .post .post-wrapper .post-content { margin-bottom: 20px; }
+
+ul.post-list > li .post .post-wrapper .post-content p { font-size: 12px; font-weight: 400; line-height: 1.5; margin-bottom: 20px; }
+
+ul.post-list > li .post .post-wrapper .post-content p:last-child { margin-bottom: 0px; }
+
+ul.post-list > li .post .post-wrapper .read-more { display: flex; justify-content: center; align-items: center; width: 160px; height: 40px; padding: 8px 12px 8px 18px; border: none; border-radius: 40px; background: #000000; font-family: 'Montserrat-Medium'; font-size: 14px; line-height: 1; color: #ffffff; text-align: center; text-transform: uppercase; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); }
+
+ul.post-list > li .post .post-wrapper .read-more:hover, ul.post-list > li .post .post-wrapper .read-more:focus { background: linear-gradient(180deg, #ff0000 70%, #ff8100); }
+
+@media (min-width: 768px) { ul.post-list { display: flex; flex-wrap: wrap; }
+  ul.post-list > li { width: 50%; padding-left: 15px; padding-right: 15px; } }
 
 /*---------------------------- Widget Area -----------------------------*/
 .widget { margin-bottom: 20px; }

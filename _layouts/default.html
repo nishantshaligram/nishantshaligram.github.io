@@ -7,7 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800&Teko:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
-  <body>
+  <body 
+    {% if page.layout == "post" %}class="post"{% endif %}
+  >
     {% include navigation.html %}
     <div class="site-content-contain">
       <div  id="content" class="site-content">
@@ -18,6 +20,7 @@
                 {{ content }}
               </main>
             </div>
+            {% if page.layout == "post" %}
             <div id="secondary" class="widget-area">
               <div class="widget">
                 <h4 class="widget-title">Follow Me</h4>
@@ -28,6 +31,7 @@
                 </ul>
               </div>
             </div>
+            {% endif %}
           </div>
         </div>
       </div>
