@@ -3,6 +3,12 @@ collections:
     output: true
   courses:
     output: true
+  html5:
+    output: true
+  css3:
+    output: true
+  flutter:
+    output: true
 
 defaults:
   - scope:
@@ -15,6 +21,11 @@ defaults:
       type: "courses"
     values:
       layout: "course"
+  - scope:
+      path: ""
+      type: "html5"
+    values:
+      layout: "chapter"
   - scope:
       path: ""
       type: "posts"

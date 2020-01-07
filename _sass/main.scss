@@ -97,10 +97,19 @@ body {
             background-color: $text-light;
         }
     }
+    .course-link {
+        background-color: $bg-dark;
+        color: $text-dark;
+    }
+    .read-more {
+        background-color: $bg-dark;
+        color: $text-dark;
+    }
     &.bg-dark {
         background-color: $bg-dark;
         color: $text-dark;
         border-color: $text-dark;
+        transition: all 0.4s ease-in;
         a:hover,
         a:focus {
             color: $link-hover-dark;
@@ -110,7 +119,14 @@ body {
                 background-color: $text-dark;
             }
         }
-        transition: all 0.4s ease-in;
+        .course-link {
+            background-color: $bg-light;
+            color: $text-light;
+        }
+        .read-more {
+            background-color: $bg-light;
+            color: $text-light;
+        }
     }
 }
 /*-----------------------------------
@@ -446,7 +462,6 @@ ul.post-list {
         .post {
             display: block;
             margin-bottom: 50px;
-            border: 1px solid rgba(255, 0, 76,0.5);
             border-radius: 10px;
             position: relative;
             &.post:hover,
@@ -505,11 +520,8 @@ ul.post-list {
                     padding: 8px 12px 8px 18px;
                     border: none;
                     border-radius: 40px;
-                    background: #000000;
-                    font-family: 'Montserrat-Medium';
                     font-size: 14px;
                     line-height: 1;
-                    color: #ffffff;
                     text-align: center;
                     text-transform: uppercase;
                     position: absolute;
@@ -566,6 +578,128 @@ ul.post-list {
                     color: rgb(255, 0, 76);
                 }
             }
+        }
+    }
+}
+/*----------------------------------
+    Course Card
+----------------------------------*/
+.course-card {
+    padding: 30px 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    position: relative;
+    &:hover,
+    &:focus {
+        box-shadow: 0px 3px 6px rgba(255, 0, 76, 0.2);
+        transition: box-shadow 0.4s ease-in;
+    }
+    .course-thumbnail{
+        display: block;
+        width: 100px;
+        height: auto;
+        max-height: 100px;
+        margin: 0 auto 20px auto;
+    }
+    .course-title{
+        margin-bottom: 20px;
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .course-description {
+        margin-bottom: 30px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2;
+        text-align: center;
+        color: #747474;
+    }
+    ul.course-points {
+        list-style: none;
+        padding-left: 0px;
+        margin-bottom: 0;
+        & > li {
+            margin-bottom: 20px;
+            .point-wrapper {
+                display: flex;
+                &:before,
+                &:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+                .point-icon {
+                    margin-right: 5px;
+                    & > svg {
+                        width: 30px;
+                        height: 30px ;
+                        fill: #1d43ff;
+                    }
+                }
+                .title {
+                    width: 100px;
+                }
+                .badge-spacer {
+                    width: calc(100% - 165px);
+                    padding: 0px 8px;
+                    & > hr{
+                        display: inline-block;
+                        width: 100%;
+                        border-color: #747474;
+                        vertical-align: middle;
+                    }
+                }
+                .badge {
+                    width: 30px;
+                    height: 30px;
+                    padding: 8px 0px;
+                    border-radius: 30px;
+                    text-align: center;
+                    color: #ffffff;  
+                    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+                    vertical-align: middle;
+                    float: right;
+                    &.badge-red {
+                        background: linear-gradient(180deg, #ff3030 70%, #d60031);
+                    }
+                    &.badge-blue {
+                        background: linear-gradient(180deg, #30a9ff 70%, #005b7d);
+                    }
+                    &.badge-green {
+                        background: linear-gradient(180deg, #30ff53 70%, #00ad7d);
+                    }
+                }
+            }
+        }
+    }
+    .course-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 40px;
+        padding: 8px 12px 8px 18px;
+        border: none;
+        border-radius: 40px;
+        font-size: 14px;
+        line-height: 1;
+        text-align: center;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        &:hover,
+        &:focus {
+            background: #30a9ff;
+        }
+        svg {
+            margin-left: 2px;
+            fill: #ffffff;
+            vertical-align: middle;
         }
     }
 }

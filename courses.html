@@ -1,0 +1,34 @@
+---
+title: Courses
+---
+<h1>Courses</h1>
+
+<ul class="post-list">
+  {% for course in site.courses %}
+  <li>
+    <div class="course-card">
+      <img class="course-thumbnail" src="assets/images/html5.svg" alt="{{ course.title }}">
+      <h2 class="course-title">{{ course.title }}</h2>
+      <p class="course-description">{{ course.excerpt }}</p>
+      <ul class="course-points">
+        <li>
+            <div class="point-wrapper">
+                <span class="point-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                </span>
+                <span class="title">Lessons</span>
+                <span class="badge-spacer"><hr></span>
+                <span class="badge badge-red">25</span>
+            </div>  
+        </li>
+      </ul>
+      <a href="{{ course.url }}" class="btn btn-primary course-link">
+        <div>
+          <span>Start Now</span>
+          <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"></path></svg>
+        </div>
+      </a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

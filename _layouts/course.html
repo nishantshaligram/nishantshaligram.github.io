@@ -1,7 +1,26 @@
 ---
 layout: default
 ---
-<h1>{{ page.name }}</h1>
-<h2>{{ page.position }}</h2>
+{% assign course = page.short_name %}
+<h1>{{ course }}</h1>
 
-{{ content }}
+<ul class="post-list">
+    {% for course in site[course] %}
+    <li>
+        <div class="post">
+        <img class="post-thumbnail" src="assets/images/hero-banner.jpg">
+        <div class="post-wrapper">
+            <a href="{{ course.url }}" class="post-title">{{ course.title }}</a>
+            <ul class="post-meta">
+                <li><span>Date:</span><span>{{ course.date | date_to_string }}</span></li>
+                <li><span>By: </span><span>{{ course.author }}</span></li>
+            </ul>
+            <div class="post-content">
+                <p>{{ course.excerpt }}</p>
+            </div>
+            <a href="{{ course.url }}" class="btn btn-primary read-more">Read More</a>
+        </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
