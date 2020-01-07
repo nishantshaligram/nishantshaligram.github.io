@@ -10,7 +10,7 @@ a:hover, a:focus { color: rgba(255, 255, 255, 0.5); }
 html, body { background-color: #000000; }
 
 /*----------------------------------- Site Header ------------------------------------*/
-body .site-header { width: 100%; box-shadow: 0px 3px 6px rgba(255, 0, 53, 0.2); }
+body .site-header { width: 100%; }
 
 body .site-header .wrap { min-height: 80px; display: flex; justify-content: space-between; align-items: center; padding-top: 10px; padding-bottom: 10px; }
 
