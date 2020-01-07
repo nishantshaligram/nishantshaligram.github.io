@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800&Teko:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
     <header id="masthead" class="site-header" role="banner">
-  <div class="wrap">
+  <div class="container">
     <div class="site-branding">
       <div class="site-branding-text">
         <a class="site-link" href="/" rel="home">Nadewell</a>
@@ -18,7 +19,7 @@
     <div class="header-widgets">
       <div class="theme-mode">
         <label class="switch">
-          <input type="checkbox">
+          <input type="checkbox" id="theme-switch">
           <span class="slider round"></span>
         </label>
       </div>
@@ -30,7 +31,7 @@
   </div>
 </header>
 <div class="navigation-top">
-  <div class="wrap">
+  <div class="container">
     <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
       <div class="menu-top-navigation-wrapper">
         <ol class="menu" id="top-menu">
@@ -66,17 +67,26 @@
 </div>
     <div class="site-content-contain">
       <div  id="content" class="site-content">
-        <div class="wrap">
-          <div id="primary" class="content-area">
-            <main id="main" class="site-main" role="main">
-              <h1 id="about-page">About page</h1>
+        <div class="container">
+          <div class="row">
+            <div id="primary" class="content-area">
+              <main id="main" class="site-main" role="main">
+                <h1 id="about-page">About page</h1>
 
 <p>This page tells you a little bit about me.</p>
 
-            </main>
-          </div>
-          <div id="secondary" class="widget-area">
-
+              </main>
+            </div>
+            <div id="secondary" class="widget-area">
+              <div class="widget">
+                <h4 class="widget-title">Follow Me</h4>
+                <ul>
+                  <li><a href="#">Youtube</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

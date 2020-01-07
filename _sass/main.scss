@@ -3,12 +3,14 @@
 ------------------------------*/
 $font-family: 'Montserrat', sans-serif;
 $logo-font-family: 'Teko', sans-serif;
-$text-color: #ffffff;
+
 $link-color: rgb(255, 0, 76);
-$link-hover: rgba(255, 255, 255,0.5);
-$site-bg: #000000;
-$medium-size: 48rem;
-$large-size: 75rem;
+$link-hover-light: rgba(0, 0, 0,0.5);
+$link-hover-dark: rgba(255, 255, 255,0.5);
+$bg-light: #ffffff;
+$text-light: #0e0e0e;
+$bg-dark: #000000;
+$text-dark: #ffffff;
 /*---------------------------
     Normalize.css
 -----------------------------*/
@@ -21,20 +23,83 @@ $large-size: 75rem;
 a{
     font-size: 1em;
     font-weight: inherit;
-    color: $link-color;
+    color: inherit;
     line-height: 1rem;
     text-decoration: none;
 }
-a:hover,
-a:focus {
-    color: $link-hover;
+p{
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: inherit;
+    margin-bottom: 24px;
+    a{
+        color: #ff004c;
+    }
+}
+h1,h2,h3,h4,h5,h6 {
+    line-height: 1.2;
+    color: inherit;
+    padding-top: 15px;
+    margin-bottom: 26px;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+h3 {
+    font-size: 26px;
+    font-weight: 700;
+}
+h4 {
+    font-size: 21px;
+    font-weight: 700;
+}
+h5 {
+    font-size: 18px;
+    font-weight: 700;
+}
+h6 {
+    font-size: 14px;
+    font-weight: 700;
 }
 /*----------------------------
     Global CSS
 ----------------------------*/
 html,
 body {
-    background-color: $site-bg;
+    background-color: $bg-light;
+    color: $text-light;
+    border-color: $text-light;
+    transition: all 0.4s ease-in;
+    a:hover,
+    a:focus {
+        color: $link-hover-light;
+    }
+    .hamburger {
+        .bar {
+            background-color: $text-light;
+        }
+    }
+    &.bg-dark {
+        background-color: $bg-dark;
+        color: $text-dark;
+        border-color: $text-dark;
+        a:hover,
+        a:focus {
+            color: $link-hover-dark;
+        }
+        .hamburger {
+            .bar {
+                background-color: $text-dark;
+            }
+        }
+        transition: all 0.4s ease-in;
+    }
 }
 /*-----------------------------------
     Site Header
@@ -42,7 +107,7 @@ body {
 body{
     .site-header {
         width: 100%;
-        .wrap {
+        .container {
             min-height: 80px;
             display: flex;
             justify-content: space-between;
@@ -59,14 +124,10 @@ body{
                     a.site-link {
                         font-family: $logo-font-family;
                         font-size: 32px;
-                        font-weight: 700;
+                        font-weight: 500;
                         line-height: 1;
-                        color: #ffffff;
+                        color: inherit;
                         text-transform: uppercase;
-                    }
-                    a.site-link:hover,
-                    a.site-link:focus {
-                        color: $link-hover;
                     }
                     p.site-description {
                         font-size: 12px;
@@ -105,9 +166,9 @@ body{
     top: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,1);
+    background: inherit;
     z-index: 9999;
-    .wrap {
+    .container {
         margin-top: 250px;
     }
     .main-navigation {
@@ -133,10 +194,6 @@ body{
                     color: $link-color;
                     text-transform: uppercase;
                 }
-                a:hover,
-                a:focus {
-                    color: $link-hover;
-                }
             }
         }
     }
@@ -157,7 +214,6 @@ body{
         display: block;
         width: calc(100% - 10px);
         height: 2px;
-        background-color: #ffffff;
         position: absolute;
         transform: none;
         &:first-child {
@@ -243,22 +299,38 @@ body{
 /*-----------------------------
     Container Wrap
 ------------------------------*/
-@media(min-width: $medium-size){
-    .wrap{
-        width: 46rem;
-    }
-}
-@media(min-width: $large-size){
-    .wrap{
-        width: 73rem;
-    }
-}
-.wrap {
+.container {
     width: 100%;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
+} 
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media(max-width: 768px){
+    .container{
+        width: 100%;
+    }
+}
+@media(min-width: 768px){
+    .container{
+        width: 740px;
+    }
+}
+@media(min-width: 992px){
+    .container{
+        width: 960px;
+    }
+}
+@media(min-width: 1200){
+    .container{
+        width: 1170px;
+    }
 }
 /*-----------------------------
     Theme mode Switch
@@ -298,11 +370,11 @@ body{
 }
   
 input:checked + .slider {
-background-color: #2196F3;
+background-color: #ff004c;
 }
 
 input:focus + .slider {
-box-shadow: 0 0 1px #2196F3;
+box-shadow: 0 0 1px #ff004c;
 }
   
 input:checked + .slider:before {
@@ -310,10 +382,73 @@ input:checked + .slider:before {
 -ms-transform: translateX(28px);
 transform: translateX(28px);
 }
-  
 .slider.round {
     border-radius: 34px;
     &:before {
         border-radius: 50%;
+    }
+}
+/*------------------------------
+    Layout
+-------------------------------*/
+.site-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .content-area{
+        width: 65%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .widget-area{
+        width: 35%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+/*----------------------------
+    Post
+-----------------------------*/
+.post {
+    display: block;
+    padding: 15px 18px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 0, 76,0.5);
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(255, 0, 76, 0.2);
+    .post-title {
+        padding-top: 0;
+        color: rgb(255, 0, 76);
+    }
+}
+/*----------------------------
+    Widget Area
+-----------------------------*/
+.widget {
+    margin-bottom: 20px;
+    .widget-title {
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0px;
+        margin-bottom: 0px;
+        li {
+            padding: 10px 0px 10px 0px;
+            border-bottom: 1px solid;
+            border-color: inherit;
+            a{
+                font-size: 12px;
+                font-weight: 400;
+                color: inherit;
+                &:hover,
+                &:focus {
+                    color: rgb(255, 0, 76);
+                }
+            }
+        }
     }
 }

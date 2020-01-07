@@ -15,3 +15,12 @@ hamburger.onclick = () => {
         body.classList.add("nav-open");
     }
 }
+
+const theme_switch = document.getElementById("theme-switch");
+theme_switch.onchange = (value) => {
+    if(body.classList.contains("bg-dark")){
+        body.classList.remove("bg-dark");
+    }else {
+        body.classList.add("bg-dark");
+    }
+}

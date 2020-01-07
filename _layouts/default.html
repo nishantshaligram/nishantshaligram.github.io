@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800&Teko:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
@@ -10,14 +11,23 @@
     {% include navigation.html %}
     <div class="site-content-contain">
       <div  id="content" class="site-content">
-        <div class="wrap">
-          <div id="primary" class="content-area">
-            <main id="main" class="site-main" role="main">
-              {{ content }}
-            </main>
-          </div>
-          <div id="secondary" class="widget-area">
-
+        <div class="container">
+          <div class="row">
+            <div id="primary" class="content-area">
+              <main id="main" class="site-main" role="main">
+                {{ content }}
+              </main>
+            </div>
+            <div id="secondary" class="widget-area">
+              <div class="widget">
+                <h4 class="widget-title">Follow Me</h4>
+                <ul>
+                  <li><a href="#">Youtube</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
