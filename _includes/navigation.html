@@ -1,7 +1,39 @@
-<nav>
-    {% for item in site.data.navigation %}
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-        {{ item.name }}
-      </a>
-    {% endfor %}
-</nav>
+<header id="masthead" class="site-header" role="banner">
+  <div class="wrap">
+    <div class="site-branding">
+      <div class="site-branding-text">
+        <a class="site-link" href="/" rel="home">Nadewell</a>
+        <!-- <p class="site-description">Create elegant experience</p> -->
+      </div>
+    </div>
+    <div class="header-widgets">
+      <div class="theme-mode">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="navigation-top">
+  <div class="wrap">
+    <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
+      <div class="menu-top-navigation-wrapper">
+        <ol class="menu" id="top-menu">
+        {% for item in site.data.navigation %}
+          <li>
+            <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+              {{ item.name }}
+            </a>
+          </li>
+        {% endfor %}
+        </ol>
+      </div>
+    </nav>
+  </div>
+</div>
