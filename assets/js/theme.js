@@ -18,6 +18,7 @@ hamburger.onclick = () => {
 // Theme mode switch click - Change theme
 const settings = localStorage;
 const theme_switch = document.getElementById("theme-switch");
+const html = document.querySelector("html");
 getThemeSettings = () => {
     var result = settings.getItem("theme-mode");
     return result;
@@ -28,23 +29,23 @@ setThemeSettings = (value) => {
 window.onload = () => {
     const theme_mode = getThemeSettings();
     if( theme_mode === "light"){
-        if(body.classList.contains("bg-dark")){
-            body.classList.remove("bg-dark");
+        if(html.classList.contains("bg-dark")){
+            html.classList.remove("bg-dark");
             theme_switch.checked = false;
         }
     }else if( theme_mode === "dark" ){
-        if(!body.classList.contains("bg-dark")){
-            body.classList.add("bg-dark");
+        if(!html.classList.contains("bg-dark")){
+            html.classList.add("bg-dark");
             theme_switch.checked = true;
         }
     }
 }
 theme_switch.onchange = (value) => {
-    if(body.classList.contains("bg-dark")){
-        body.classList.remove("bg-dark");
+    if(html.classList.contains("bg-dark")){
+        html.classList.remove("bg-dark");
         setThemeSettings("light");
     }else {
-        body.classList.add("bg-dark");
+        html.classList.add("bg-dark");
         setThemeSettings("dark");
     }
 }

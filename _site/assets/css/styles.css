@@ -29,13 +29,15 @@ ul li, ol li { margin-bottom: 8px; }
 ul a, ol a { color: #ff004c; }
 
 /*---------------------------- Global CSS ----------------------------*/
-html, body { background-color: #ffffff; color: #0e0e0e; border-color: #0e0e0e; transition: all 0.4s ease-in; }
+html, body { position: relative; transition: all 0.4s ease-in; }
 
 html a:hover, html a:focus, body a:hover, body a:focus { color: rgba(0, 0, 0, 0.5); }
 
 html .hamburger .bar, body .hamburger .bar { background-color: #0e0e0e; }
 
 html .course-link, body .course-link { background-color: #000000; color: #ffffff; }
+
+html .course-link svg, body .course-link svg { fill: #ffffff; }
 
 html .read-more, body .read-more { background-color: #000000; color: #ffffff; }
 
@@ -46,6 +48,8 @@ html.bg-dark a:hover, html.bg-dark a:focus, body.bg-dark a:hover, body.bg-dark a
 html.bg-dark .hamburger .bar, body.bg-dark .hamburger .bar { background-color: #ffffff; }
 
 html.bg-dark .course-link, body.bg-dark .course-link { background-color: #ffffff; color: #0e0e0e; }
+
+html.bg-dark .course-link svg, body.bg-dark .course-link svg { fill: #0e0e0e; }
 
 html.bg-dark .read-more, body.bg-dark .read-more { background-color: #ffffff; color: #0e0e0e; }
 
@@ -71,19 +75,21 @@ body.nav-open { overflow: hidden; }
 body.nav-open .site-header { position: fixed; z-index: 99999; box-shadow: none; }
 
 /*---------------------------- Site Navigation -----------------------------*/
-.navigation-top { display: none; width: 100%; height: 100%; position: fixed; top: 0; right: 0; bottom: 0; background: inherit; z-index: 9999; }
+html .navigation-top, body .navigation-top { display: none; width: 100%; height: 100%; position: fixed; top: 0; right: 0; bottom: 0; background-color: #ffffff; z-index: 9999; }
 
-.navigation-top .container { margin-top: 250px; }
+html .navigation-top .container, body .navigation-top .container { margin-top: 250px; }
 
-.navigation-top .main-navigation { display: block; margin: 0 auto; }
+html .navigation-top .main-navigation, body .navigation-top .main-navigation { display: block; margin: 0 auto; }
 
-.navigation-top .main-navigation #top-menu { list-style-type: none; list-style-position: inside; padding-left: 0; margin-bottom: 0; color: rgba(255, 255, 255, 0.5); text-align: center; }
+html .navigation-top .main-navigation #top-menu, body .navigation-top .main-navigation #top-menu { list-style-type: none; list-style-position: inside; padding-left: 0; margin-bottom: 0; color: rgba(255, 255, 255, 0.5); text-align: center; }
 
-.navigation-top .main-navigation #top-menu li { margin-right: 5px; margin-left: 5px; margin-bottom: 10px; }
+html .navigation-top .main-navigation #top-menu li, body .navigation-top .main-navigation #top-menu li { margin-right: 5px; margin-left: 5px; margin-bottom: 10px; }
 
-.navigation-top .main-navigation #top-menu li a { display: block; padding: 8px 10px; font-size: 36px; font-weight: 500; line-height: 1; color: #ff004c; text-transform: uppercase; }
+html .navigation-top .main-navigation #top-menu li a, body .navigation-top .main-navigation #top-menu li a { display: block; padding: 8px 10px; font-size: 36px; font-weight: 500; line-height: 1; color: #ff004c; text-transform: uppercase; }
 
-.navigation-top.show { display: block; }
+html .navigation-top.show, body .navigation-top.show { display: block; }
+
+html.bg-dark .navigation-top, body.bg-dark .navigation-top { background-color: #000000; }
 
 /*---------------------------- Hamburger -----------------------------*/
 .hamburger { width: 50px; height: 50px; position: relative; padding: 5px; cursor: pointer; }
@@ -199,7 +205,7 @@ ul.post-list > li .post .post-wrapper .post-content p:last-child { margin-bottom
 
 ul.post-list > li .post .post-wrapper .read-more { display: flex; justify-content: center; align-items: center; width: 160px; height: 40px; padding: 8px 12px 8px 18px; border: none; border-radius: 40px; font-size: 14px; line-height: 1; text-align: center; text-transform: uppercase; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); }
 
-ul.post-list > li .post .post-wrapper .read-more:hover, ul.post-list > li .post .post-wrapper .read-more:focus { background: linear-gradient(180deg, #ff0000 70%, #ff8100); }
+ul.post-list > li .post .post-wrapper .read-more:hover, ul.post-list > li .post .post-wrapper .read-more:focus { color: #ffffff; background: linear-gradient(180deg, #ff004c 70%, #ff0000); }
 
 @media (min-width: 768px) { ul.post-list { display: flex; flex-wrap: wrap; }
   ul.post-list > li { width: 50%; padding-left: 15px; padding-right: 15px; } }
@@ -246,7 +252,7 @@ ul.post-list > li .post .post-wrapper .read-more:hover, ul.post-list > li .post 
 
 .course-card ul.course-points > li .point-wrapper .badge-spacer > hr { display: inline-block; width: 100%; border-color: #747474; vertical-align: middle; }
 
-.course-card ul.course-points > li .point-wrapper .badge { width: 30px; height: 30px; padding: 8px 0px; border-radius: 30px; text-align: center; color: #ffffff; box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2); vertical-align: middle; float: right; }
+.course-card ul.course-points > li .point-wrapper .badge { width: 30px; height: 30px; padding: 6px 0px; border-radius: 30px; text-align: center; color: #ffffff; box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2); vertical-align: middle; float: right; }
 
 .course-card ul.course-points > li .point-wrapper .badge.badge-red { background: linear-gradient(180deg, #ff3030 70%, #d60031); }
 
@@ -256,8 +262,10 @@ ul.post-list > li .post .post-wrapper .read-more:hover, ul.post-list > li .post 
 
 .course-card .course-link { display: flex; justify-content: center; align-items: center; width: 160px; height: 40px; padding: 8px 12px 8px 18px; border: none; border-radius: 40px; font-size: 14px; line-height: 1; text-align: center; text-transform: uppercase; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); }
 
-.course-card .course-link:hover, .course-card .course-link:focus { background: #30a9ff; }
+.course-card .course-link:hover, .course-card .course-link:focus { color: #ffffff; background: linear-gradient(180deg, #ff004c 70%, #ff0000); }
 
-.course-card .course-link svg { margin-left: 2px; fill: #ffffff; vertical-align: middle; }
+.course-card .course-link:hover svg, .course-card .course-link:focus svg { fill: #ffffff; }
+
+.course-card .course-link svg { margin-left: 2px; vertical-align: middle; }
 
 /*# sourceMappingURL=styles.css.map */
