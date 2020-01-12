@@ -4,7 +4,7 @@
 
 a { font-size: 1em; font-weight: inherit; color: inherit; line-height: 1rem; text-decoration: none; }
 
-p { font-size: 12px; line-height: 1.5; font-weight: 400; color: inherit; margin-bottom: 24px; }
+p { font-size: 14px; line-height: 1.5; font-weight: 400; color: inherit; margin-bottom: 24px; }
 
 p a { color: #ff004c; }
 
@@ -27,6 +27,8 @@ ul, ol { padding-left: 24px; margin-bottom: 20px; }
 ul li, ol li { margin-bottom: 8px; }
 
 ul a, ol a { color: #ff004c; }
+
+img { max-width: 100%; height: auto; }
 
 /*---------------------------- Global CSS ----------------------------*/
 html, body { position: relative; transition: all 0.4s ease-in; }
@@ -173,8 +175,8 @@ input:checked + .slider:before { -webkit-transform: translateX(28px); -ms-transf
 
 .site-content .widget-area { width: 100%; padding-left: 15px; padding-right: 15px; }
 
-@media (min-width: 992px) { body.blog .content-area, body.post .content-area { width: 65%; padding-left: 15px; padding-right: 15px; }
-  body.blog .widget-area, body.post .widget-area { width: 35%; padding-left: 15px; padding-right: 15px; } }
+@media (min-width: 992px) { body.post .content-area { width: 65%; padding-left: 15px; padding-right: 15px; }
+  body.post .widget-area { width: 35%; padding-left: 15px; padding-right: 15px; } }
 
 /*---------------------------- Post -----------------------------*/
 ul.post-list { list-style: none; padding-left: 0px; margin-bottom: 0px; }
@@ -189,17 +191,17 @@ ul.post-list > li .post .post-thumbnail { width: 100%; height: auto; }
 
 ul.post-list > li .post .post-wrapper { padding: 20px 24px; }
 
-ul.post-list > li .post .post-wrapper .post-title { padding-top: 0; display: block; font-size: 21px; line-height: 1.2; font-weight: 700; color: #ff004c; }
+ul.post-list > li .post .post-wrapper .post-title { padding-top: 0; font-size: 21px; line-height: 1.2; font-weight: 700; color: #ff004c; margin-bottom: 8px; }
 
 ul.post-list > li .post .post-wrapper .post-title:hover, ul.post-list > li .post .post-wrapper .post-title:focus { color: #747474; }
 
 ul.post-list > li .post .post-wrapper ul.post-meta { list-style: none; padding-left: 0px; margin-bottom: 20px; }
 
-ul.post-list > li .post .post-wrapper ul.post-meta > li { margin-bottom: 10px; font-size: 12px; font-weight: 400; color: #747474; vertical-align: middle; }
+ul.post-list > li .post .post-wrapper ul.post-meta > li { margin-bottom: 10px; font-size: 14px; font-weight: 400; color: #747474; vertical-align: middle; }
 
 ul.post-list > li .post .post-wrapper .post-content { margin-bottom: 20px; }
 
-ul.post-list > li .post .post-wrapper .post-content p { font-size: 12px; font-weight: 400; line-height: 1.5; margin-bottom: 20px; }
+ul.post-list > li .post .post-wrapper .post-content p { font-size: 14px; font-weight: 400; line-height: 1.5; margin-bottom: 20px; }
 
 ul.post-list > li .post .post-wrapper .post-content p:last-child { margin-bottom: 0px; }
 

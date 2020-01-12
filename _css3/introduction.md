@@ -1,7 +1,9 @@
 ---
+chapter_no: 1
 short_name: introduction-css3
 name: Introduction-CSS3
 author: nishant
+thumbnail: assets/images/hero-banner.jpg
 ---
 
 What is required for this course ?

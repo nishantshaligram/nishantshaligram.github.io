@@ -3,12 +3,12 @@ layout: default
 ---
 {% assign course = page.short_name %}
 <h1>{{ course }}</h1>
-
+{% if site[course] != "" %}
 <ul class="post-list">
     {% for course in site[course] %}
     <li>
         <div class="post">
-        <img class="post-thumbnail" src="assets/images/hero-banner.jpg">
+        <img class="post-thumbnail" src="../{{ course.thumbnail }}">
         <div class="post-wrapper">
             <a href="{{ course.url }}" class="post-title">{{ course.title }}</a>
             <ul class="post-meta">
@@ -24,3 +24,6 @@ layout: default
     </li>
     {% endfor %}
 </ul>
+{% else %}
+<h2>Coming Soon...</h2>
+{% endif %}

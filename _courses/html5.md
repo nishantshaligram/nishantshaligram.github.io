@@ -1,6 +1,7 @@
 ---
 short_name: html5
 name: HTML5
+thumbnail: assets/images/html5.svg
 author: nishant
 lessons: 12
 homeworks: 4

@@ -7,6 +7,8 @@ collections:
     output: true
   css3:
     output: true
+  javascript:
+    output: true
   flutter:
     output: true
 
@@ -28,6 +30,21 @@ defaults:
       layout: "chapter"
   - scope:
       path: ""
+      type: "css3"
+    values:
+      layout: "chapter"
+  - scope:
+      path: ""
+      type: "javascript"
+    values:
+      layout: "chapter"
+  - scope:
+      path: ""
+      type: "flutter"
+    values:
+      layout: "chapter"
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: "post"
@@ -37,3 +54,13 @@ defaults:
     values:
       layout: "default"
       is_page: true
+
+
+url: "https://nadewell.github.io"
+# This will require each of these plugins automatically.
+plugins:
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-youtube
+  - jekyll-seo-tag
+  - jekyll-sitemap

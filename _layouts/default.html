@@ -9,6 +9,7 @@
   </head>
   <body 
     {% if page.layout == "post" %}class="post"{% endif %}
+    {% if page.layout == "course" %}class="course"{% endif %}
   >
     {% include navigation.html %}
     <div class="site-content-contain">
@@ -20,8 +21,18 @@
                 {{ content }}
               </main>
             </div>
-            {% if page.layout == "post" %}
+            {% if page.layout == "post" or page.layout == "course" %}
             <div id="secondary" class="widget-area">
+              {% if page.layout == "course" %}
+              <div class="widget">
+                <h4 class="widget-title">Chapters</h4>
+                <ul>
+                  {% for chapter in  site.data[page.short_name] %}
+                  <li><a href="{{ chapter.link }}">{{ chapter.name }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
               <div class="widget">
                 <h4 class="widget-title">Follow Me</h4>
                 <ul>
