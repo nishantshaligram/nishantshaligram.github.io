@@ -9,6 +9,7 @@ video_url: KPyUU65Bg7k
 What is required for this course ?
 ----------------------------------
 This HTML5 course do need require any special talent. Basic English language and Computer Skills are required for learning this course. This course is for all students, housewives and people who wants to make some passive income with website, e-commerce, blogging and etc.
+
 What are the tools required for?
 --------------------------------
 1. Desktop PC or Laptop
