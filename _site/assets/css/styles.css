@@ -189,7 +189,7 @@ input:checked + .slider:before { -webkit-transform: translateX(28px); -ms-transf
   body.post .widget-area { width: 35%; padding-left: 15px; padding-right: 15px; }
   .chapter-wrapper { display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; }
   .chapter-wrapper .chapter-video { width: 70%; padding-right: 15px; border-right: 1px solid #747474; }
-  .chapter-wrapper .chapter-navigation { width: 30%; padding-left: 15px; overflow-y: auto; } }
+  .chapter-wrapper .chapter-navigation { width: 30%; padding-left: 15px; } }
 
 /*---------------------------- Post -----------------------------*/
 ul.post-list { list-style: none; padding-left: 0px; margin-bottom: 0px; }

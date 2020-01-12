@@ -14,13 +14,15 @@ layout: default
     <div class="chapter-navigation">
         <ul>
             {% assign course = page.collection %}
+            {% assign chapter_no = 1 %}
             {% for chapter in  site.data[course] %}
-            <li><a {% if page.title == chapter.name %}class="active"{% endif %} href="{{ chapter.link }}">{{ chapter.name }}</a></li>
+            <li>
+                <a {% if page.title == chapter.name %}class="active"{% endif %} href="{{ chapter.link }}">Chapter-{{ chapter_no }} {{ chapter.name }}</a>
+            </li>
+            {% assign chapter_no = chapter_no + 1 %}
             {% endfor %}
         </ul>
     </div>
 </div>
-
-<span>Chapter-{{ page.chapter_no }}</span>
 <h1>{{ page.title }}</h1>
 {{ content }}
