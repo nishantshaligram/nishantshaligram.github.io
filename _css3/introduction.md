@@ -1,7 +1,7 @@
 ---
 chapter_no: 1
-short_name: introduction-css3
-name: Introduction-CSS3
+short_name: introduction
+name: Introduction
 author: nishant
 thumbnail: assets/images/hero-banner.jpg
 ---
