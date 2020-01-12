@@ -10,13 +10,9 @@ layout: default
         <div class="post">
         <img class="post-thumbnail" src="{{site.url }}/{{ course.thumbnail }}">
         <div class="post-wrapper">
-            <a href="{{ course.url }}" class="post-title">{{ course.title }}</a>
-            <ul class="post-meta">
-                <li><span>Date:</span><span>{{ course.date | date_to_string }}</span></li>
-                <li><span>By: </span><span>{{ course.author }}</span></li>
-            </ul>
+            <h2 class="post-title"><a href="{{ course.url }}" class="post-title">{{ course.title }}</a></h2>
             <div class="post-content">
-                <p>{{ course.excerpt }}</p>
+                {{ course.excerpt | truncatewords:30 }}
             </div>
             <a href="{{ course.url }}" class="btn btn-primary read-more">Read More</a>
         </div>

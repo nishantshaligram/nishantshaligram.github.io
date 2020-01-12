@@ -460,6 +460,8 @@ transform: translateX(28px);
     }
     .chapter-navigation {
         width: 100%;
+        min-height: 250px;
+        overflow-y: scroll;
         ul {
             list-style: none;
             padding-left: 0px;

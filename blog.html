@@ -15,7 +15,7 @@ title: Blog
               <li><span>By: </span><span>{{ post.author }}</span></li>
           </ul>
           <div class="post-content">
-            <p>{{ post.excerpt }}</p>
+            {{ post.excerpt | truncatewords:30 }}
           </div>
           <a href="{{ post.url }}" class="btn btn-primary read-more">Read More</a>
       </div>
