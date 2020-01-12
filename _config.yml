@@ -1,3 +1,10 @@
+# General Settings
+title: Coding with Nadewell
+email: nishant.shaligram@gmail.com
+description: "Welcome to my new blog running on Jekyll"
+baseurl: ""
+url: ""
+
 collections:
   authors:
     output: true
@@ -55,9 +62,6 @@ defaults:
       layout: "default"
       is_page: true
 
-
-url: "https://nadewell.github.io"
-# This will require each of these plugins automatically.
 plugins:
   - jekyll-gist
   - jekyll-feed

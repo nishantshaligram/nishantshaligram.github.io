@@ -7,7 +7,7 @@ title: Courses
   {% for course in site.courses %}
   <li>
     <div class="course-card">
-      <img class="course-thumbnail" src="../{{ course.thumbnail }}" alt="{{ course.title }}">
+      <img class="course-thumbnail" src="{{site.url }}/{{ course.thumbnail }}" alt="{{ course.title }}">
       <h2 class="course-title">{{ course.title }}</h2>
       <p class="course-description">{{ course.excerpt }}</p>
       <ul class="course-points">
