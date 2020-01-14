@@ -1,6 +1,4 @@
 ---
 title: About
 ---
-# About page
-
-This page tells you a little bit about me.
+Nadewell is website where you can learn different programming languages through the courses.
