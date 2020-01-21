@@ -1,8 +1,7 @@
 ---
 title: Trading Book Privacy Policy
 ---
-# Trading Book Privacy Policy Page
-## Privacy Policy
+# Trading Book Privacy Policy
 
 Nishant Shaligram built the Trading Book app as an Ad Supported app. This SERVICE is provided by Nishant Shaligram at no cost and is intended for use as is.
 
