@@ -5,6 +5,7 @@ title: Courses
 
 <ul class="post-list">
   {% for course in site.courses %}
+  {% if course.show == true %}
   <li>
     <div class="course-card">
       <img class="course-thumbnail" src="{{site.url }}/{{ course.thumbnail }}" alt="{{ course.title }}">
@@ -50,5 +51,6 @@ title: Courses
       </a>
     </div>
   </li>
+  {% endif %}
   {% endfor %}
 </ul>

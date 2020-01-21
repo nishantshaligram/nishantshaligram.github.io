@@ -71,6 +71,7 @@ ul,
 ol {
     padding-left: 24px;
     margin-bottom: 20px;
+    font-size: 14px;
     li {
         margin-bottom: 8px;
     }
@@ -460,7 +461,9 @@ transform: translateX(28px);
     }
     .chapter-navigation {
         width: 100%;
-        min-height: 250px;
+        min-height: 150px;
+        padding: 15px;
+        border: 1px solid #747474;        
         overflow-y: scroll;
         ul {
             list-style: none;
@@ -471,6 +474,20 @@ transform: translateX(28px);
                 font-size: 14px;
                 font-weight: 400;
                 vertical-align: middle;
+                &> a {
+                    color: inherit;
+                    padding: 5px;
+                    &.active {
+                        display: block;
+                        padding: 5px;
+                        background-color: #ff004c;
+                        color: #ffffff;
+                    }
+                    &:not(.active):hover,
+                    &:not(.active):focus {
+                        color: #747474;
+                    }
+                }
             }
         }
     }
@@ -497,11 +514,12 @@ transform: translateX(28px);
         flex-wrap: wrap;
         .chapter-video {
             width: 70%;
+            margin-bottom: 0;
             padding-right: 15px;
-            border-right: 1px solid #747474;
         }
         .chapter-navigation {
             width: 30%;
+            min-height: 250px;
             padding-left: 15px;
         }
     }

@@ -1,0 +1,20 @@
+I"�<h2 id="what-is-required-for-this-course-">What is required for this course ?</h2>
+<p>This HTML5 course don’t need require any special talent. Basic English language and Computer Skills are enough to learn HTML. This course is for all those who wants to make income through development of website, e-commerce, blogging and etc.
+What tools are required?
+——————————–</p>
+<ol>
+  <li>Computer PC/Laptop. HTML works everywhere so low spec pcs are also good.</li>
+  <li>Code Editor like <a href="https://www.sublimetext.com/">Sublime</a> or <a href="https://code.visualstudio.com/">Visual Studio Code</a>. I recomended VS Code as it is Open Source and It has various great features and plugins which I will discuss later.</li>
+  <li>Any browser of your choice. For example, <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> or <a href="https://www.google.com/chrome/">Google Chrome</a> But i will recommend to use Google Chrome. Both has great dev tools which are helpful to play around html. You will see that later.</li>
+</ol>
+
+<p>So after installing VS Code and Chrome. Open VS Code and go to “File &gt; Open Folder” and choose where you want to save all your file. Save this in any drive except where sytem is installed. For example, My windows is installed in “C:/” drive so im saving it “D:/”. Here in drive “D:/” i will create a folder name “html-course”. Which i will open in VS Code.</p>
+
+<p>So now all is set so let’s write our the first html page.</p>
+
+<ul>
+  <li>Go to File menu &gt; New File or use shortcut command “CTRL + N”  windows and “CMD + N” for mac to create new file.</li>
+  <li>type in this document “I’m Entering into html world” or whatever you like. and save this file with “.html” or “.htm” extension</li>
+  <li>Now navigate to this file in your file explorer and double click on it. It will open in your browser. And your message will be there printed on screen.</li>
+</ul>
+:ET
