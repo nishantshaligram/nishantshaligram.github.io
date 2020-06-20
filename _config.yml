@@ -6,50 +6,8 @@ baseurl: ""
 url: ""
 
 collections:
-  authors:
-    output: true
-  courses:
-    output: true
-  html5:
-    output: true
-  css3:
-    output: true
-  javascript:
-    output: true
-  flutter:
-    output: true
 
 defaults:
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
-  - scope:
-      path: ""
-      type: "courses"
-    values:
-      layout: "course"
-  - scope:
-      path: ""
-      type: "html5"
-    values:
-      layout: "chapter"
-  - scope:
-      path: ""
-      type: "css3"
-    values:
-      layout: "chapter"
-  - scope:
-      path: ""
-      type: "javascript"
-    values:
-      layout: "chapter"
-  - scope:
-      path: ""
-      type: "flutter"
-    values:
-      layout: "chapter"
   - scope:
       path: ""
       type: "posts"
