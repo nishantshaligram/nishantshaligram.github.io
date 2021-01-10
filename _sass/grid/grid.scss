@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+} 
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+$position: (start: flex-start, center: center, end: flex-end);
+@each $key, $value in $position {
+    .justify-content-#{$key} {
+        justify-content: $value;
+    }
+}
+@each $key, $value in $position {
+    .align-items-#{$key} {
+        align-items: $value;
+    }
+}
+
+/*----------------------------
+    Grid Columns
+-----------------------------*/
+@import './columns.scss';
+/*----------------------------
+    Grid System Margins
+-----------------------------*/
+@import './margin.scss';
+/*----------------------------
+    Grid System Paddings
+-----------------------------*/
+@import './padding.scss';

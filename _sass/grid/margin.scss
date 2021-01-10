@@ -1,0 +1,20 @@
+@for $i from 1 through 10 {
+    .mg-top-#{$i}{
+        margin-top: $i * 10px;
+    }
+}
+@for $i from 1 through 10 {
+    .mg-bottom-#{$i}{
+        margin-bottom: $i * 10px;
+    }
+}
+@for $i from 1 through 10 {
+    .mg-left-#{$i}{
+        margin-left: $i * 10px;
+    }
+}
+@for $i from 1 through 10 {
+    .mg-right-#{$i}{
+        margin-right: $i * 10px;
+    }
+}
