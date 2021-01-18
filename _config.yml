@@ -4,6 +4,11 @@ email: nishant.shaligram@gmail.com
 description: "Welcome to my new blog running on Jekyll"
 baseurl: ""
 url: ""
+#social links
+facebook: "https://www.facebook.com/nishant.shaligram1/"
+instagram: "https://www.instagram.com/_.nishant1601._/"
+twitter:
+youtube: "https://www.youtube.com/channel/UCUkLY-Z7ImMtOLtkd25wsnQ"
 
 collections:
 

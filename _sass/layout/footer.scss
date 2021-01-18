@@ -1,0 +1,17 @@
+.site-footer {
+    .social-link {
+        & > svg {
+            fill: $text-light;
+            width: 40px;
+            height: 40px;
+        }
+
+        &:focus,&:hover {
+            & > svg {
+                fill: $link-color;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}

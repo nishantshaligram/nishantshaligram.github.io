@@ -1,8 +1,34 @@
+html,
+body {
+    position: relative;
+    transition: all 0.4s ease-in;
+    a:hover,
+    a:focus {
+        color: $link-hover-color;
+    }
+    .hamburger {
+        .bar {
+            background-color: $text-light;
+        }
+    }
+    .course-link {
+        background-color: $bg-dark;
+        color: $text-dark;
+        svg {
+            fill: $text-dark;
+        }
+    }
+    .read-more {
+        background-color: $bg-dark;
+        color: $text-dark;
+    }
+}
+
 .progress-bar{
     padding: 0px 4px;
     height: 10px;
     border-radius: 10px;
-    background-color: #dddddd;
+    background-color: #ebebeb;
     .container-bar{
         width: 100%;
         height: 10px;
@@ -26,12 +52,97 @@
     border-radius: 5px;
     padding: 10px 15px;
     background-color: $link-color;
-    color: #ffffff;
+    color: $text-light;
+
+    &:focus,&:hover {
+        background-color: $link-hover-color;
+        color: $text-light;
+    }
 }
 
 $text-pos: (left: left, center: center, right: right);
-@each $key, $value in $position {
+@each $key, $value in $text-pos {
     .text-#{$key} {
         text-align: $value;
+    }
+}
+
+/*----------------------------
+    Post
+-----------------------------*/
+@import './post.scss';
+
+/*-----------------------------
+    Theme Mode
+------------------------------*/
+@import './dark_mode.scss';
+/*-----------------------------
+    Backgrounds
+------------------------------*/
+.bg-gradiant-blue {
+    background: linear-gradient(45deg,#28ff21,#0ce730);
+}
+/*-----------------------------
+    Herp Section
+------------------------------*/
+.hero-section {
+    margin-top: -50px;
+}
+/*-----------------------------
+    Theme Switch
+------------------------------*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+            background-color: $link-color;
+        } 
+        
+        &:focus + .slider {
+            box-shadow: 0 0 1px $link-color;
+        }
+              
+        &:checked + .slider:before {
+            -webkit-transform: translateX(28px);
+            -ms-transform: translateX(28px);
+            transform: translateX(28px);
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #cccccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 6px;
+            bottom: 4px;
+            background-color: #ffffff;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        &.round {
+            border-radius: 34px;
+            &:before {
+                border-radius: 50%;
+            }
+        }
     }
 }

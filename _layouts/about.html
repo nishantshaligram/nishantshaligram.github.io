@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QVGMBIJoMf9dQjH2LLqZHXCn8Vws8UTFhWu0uexRrpY" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800&Teko:500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    {% seo %}
+</head>
+
+<body {% if page.layout=="post" %}class="post" {% endif %} {% if page.layout=="course" %}class="course" {% endif %}>
+    {% include header.html %}
+    <div class="site-content-contain">
+        <div id="content" class="site-content">
+            {{ content }}
+        </div>
+    </div>
+    {% include footer.html %}
+    <script src="/assets/js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+html,body{
+    &.bg-dark {
+        background-color: $bg-dark;
+        color: $text-dark;
+        border-color: $text-dark;
+        transition: all 0.4s ease-in;
+        a:hover,
+        a:focus {
+            color: $link-hover-color;
+        }
+        .site-header{
+            box-shadow: 0px 0px 4px 0px rgba(255,255,255,0.5);
+        }
+        .hamburger {
+            .bar {
+                background-color: $text-dark;
+            }
+        }
+        .course-link {
+            background-color: $bg-light;
+            color: $text-light;
+            svg {
+                fill: $text-light;
+            }
+        }
+        .read-more {
+            background-color: $bg-light;
+            color: $text-light;
+        }
+        .social-link {
+            & > svg {
+                fill: $text-dark;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .btn {
+            color: $text-dark;
+            &:focus,&:hover {
+                color: $text-dark;
+            }
+        }
+    }
+}

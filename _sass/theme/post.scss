@@ -1,0 +1,97 @@
+ul.post-list {
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    &> li {
+        width: 100%;
+        .post {
+            display: block;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            position: relative;
+            &.post:hover,
+            &.post:focus {
+                box-shadow: 0px 3px 6px rgba(255, 0, 76, 0.2);
+                transition: box-shadow 0.4s ease-in;
+            }
+            .post-thumbnail {
+                width: 100%;
+                height: auto;
+            }
+            .post-wrapper {
+                padding: 20px 24px;
+                .post-title {
+                    padding-top: 0;
+                    font-size: 21px;
+                    line-height: 1.2;
+                    font-weight: 700;
+                    color: rgb(255, 0, 76);
+                    margin-bottom: 8px;
+                    &:hover,
+                    &:focus {
+                        color: #747474;
+                    }
+                }
+                ul.post-meta {
+                    list-style: none;
+                    padding-left: 0px;
+                    margin-bottom: 20px;
+                    &> li {
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #747474;
+                        vertical-align: middle;
+                    }
+                }
+                .post-content {
+                    margin-bottom: 20px;
+                    p {
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 1.5;
+                        margin-bottom: 20px;
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+                .read-more {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 160px;
+                    height: 40px;
+                    padding: 8px 12px 8px 18px;
+                    border: none;
+                    border-radius: 40px;
+                    font-size: 14px;
+                    line-height: 1;
+                    text-align: center;
+                    text-transform: uppercase;
+                    position: absolute;
+                    bottom: -20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    &:hover,
+                    &:focus {
+                        color: #ffffff;
+                        background: linear-gradient(180deg, #ff004c 70%, #ff0000);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 768px){
+    ul.post-list {
+        display: flex;
+        flex-wrap: wrap;
+        &> li {
+            width: 50%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
