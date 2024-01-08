@@ -48,14 +48,14 @@ body {
 
 .btn {
     display: inline-block;
-    border: 1px solid $link-color;
+    border: 1px solid $btn-hover-background-color;
     border-radius: 5px;
     padding: 10px 15px;
-    background-color: $link-color;
+    background: $btn-background-color;
     color: $text-light;
 
     &:focus,&:hover {
-        background-color: $link-hover-color;
+        background: $btn-hover-background-color;
         color: $text-light;
     }
 }
@@ -102,11 +102,11 @@ $text-pos: (left: left, center: center, right: right);
         height: 0;
 
         &:checked + .slider {
-            background-color: $link-color;
+            background: $btn-background-color;
         } 
         
         &:focus + .slider {
-            box-shadow: 0 0 1px $link-color;
+            box-shadow: 0 0 1px $btn-hover-background-color;
         }
               
         &:checked + .slider:before {
