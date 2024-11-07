@@ -53,6 +53,7 @@ body {
     padding: 10px 15px;
     background: $btn-background-color;
     color: $text-light;
+    transition: background 0.4s linear;
 
     &:focus,&:hover {
         background: $btn-hover-background-color;
