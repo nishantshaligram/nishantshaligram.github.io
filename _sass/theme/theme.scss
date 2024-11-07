@@ -80,7 +80,7 @@ $text-pos: (left: left, center: center, right: right);
     Backgrounds
 ------------------------------*/
 .bg-gradiant-blue {
-    background: linear-gradient(45deg, #ff6194, #ffc137);
+    background: $btn-background-color;
 }
 /*-----------------------------
     Herp Section
