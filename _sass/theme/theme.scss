@@ -38,7 +38,7 @@ body {
             position: absolute;
             height: 4px;
             top: 3px;
-            background: linear-gradient(45deg, #ff6194, #ffc137);
+            background: $btn-background-color;
             border-radius: 10px;
         }
         
