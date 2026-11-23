@@ -183,6 +183,33 @@
             box-shadow: 8px 8px 0px 0px #FFFFFF !important;
         }
 
+        /* Nav Menu Item Hover Colors (Light & Dark) */
+        .nav-link-cyan:hover,
+        .dark .nav-link-cyan:hover {
+            background-color: #00F0FF !important;
+            color: #000000 !important;
+        }
+        .nav-link-yellow:hover,
+        .dark .nav-link-yellow:hover {
+            background-color: #FFE600 !important;
+            color: #000000 !important;
+        }
+        .nav-link-lime:hover,
+        .dark .nav-link-lime:hover {
+            background-color: #00FF66 !important;
+            color: #000000 !important;
+        }
+        .nav-link-pink:hover,
+        .dark .nav-link-pink:hover {
+            background-color: #FF4081 !important;
+            color: #000000 !important;
+        }
+        .nav-link-purple:hover,
+        .dark .nav-link-purple:hover {
+            background-color: #B388FF !important;
+            color: #000000 !important;
+        }
+
         /* Marquee Ribbon */
         .marquee-track {
             display: flex;
@@ -290,11 +317,11 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider">
-                <a href="#about" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-cyan hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">01. About</a>
-                <a href="#projects" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-yellow hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">02. NexusPilot Suite</a>
-                <a href="#skills" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-lime hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">03. Stack</a>
-                <a href="#experience" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-pink hover:text-white dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">04. Experience</a>
-                <a href="#contact" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-purple hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">05. Connect</a>
+                <a href="#about" class="nav-link-cyan px-3.5 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">01. About</a>
+                <a href="#projects" class="nav-link-yellow px-3.5 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">02. NexusPilot Suite</a>
+                <a href="#skills" class="nav-link-lime px-3.5 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">03. Stack</a>
+                <a href="#experience" class="nav-link-pink px-3.5 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">04. Experience</a>
+                <a href="#contact" class="nav-link-purple px-3.5 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">05. Connect</a>
             </nav>
 
             <!-- Actions & Theme Toggle -->
@@ -323,11 +350,11 @@
 
         <!-- Mobile Drawer -->
         <div id="mobileMenu" class="hidden lg:hidden border-t-3 border-black dark:border-white mt-3 pt-3 pb-2 space-y-2 font-mono text-sm font-bold">
-            <a href="#about" class="block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard">01. ABOUT</a>
-            <a href="#projects" class="block p-2 border-2 border-black dark:border-white bg-brutal-yellow text-black">02. NEXUSPILOT SUITE</a>
-            <a href="#skills" class="block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard">03. TECHNICAL STACK</a>
-            <a href="#experience" class="block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard">04. EXPERIENCE TIMELINE</a>
-            <a href="#contact" class="block p-2 border-2 border-black dark:border-white bg-brutal-cyan text-black">05. INITIATE CONTACT</a>
+            <a href="#about" class="nav-link-cyan block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white">01. ABOUT</a>
+            <a href="#projects" class="nav-link-yellow block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white">02. NEXUSPILOT SUITE</a>
+            <a href="#skills" class="nav-link-lime block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white">03. TECHNICAL STACK</a>
+            <a href="#experience" class="nav-link-pink block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white">04. EXPERIENCE TIMELINE</a>
+            <a href="#contact" class="nav-link-purple block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white">05. INITIATE CONTACT</a>
             <div class="flex gap-2 pt-2">
                 <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-xs"><i class="fab fa-github mr-1"></i> GITHUB</a>
                 <a href="https://www.linkedin.com/in/nishant-shaligram/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 border-2 border-black dark:border-white bg-[#0A66C2] text-white text-xs"><i class="fab fa-linkedin mr-1"></i> LINKEDIN</a>
@@ -1390,7 +1417,7 @@
                     Lead Engineer &amp; Full Stack Architect • Architect of NexusPilot Suite
                 </div>
                 <div class="text-neutral-500 text-[11px] pt-1">
-                    &copy; 2026 Nishant Shaligram. Built with Modern Brutalism UI &amp; Tailwind CSS.
+                    &copy; 2026 Nishant Shaligram. All rights reserved.
                 </div>
             </div>
 
