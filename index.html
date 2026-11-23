@@ -1,846 +1,1508 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nishant Shaligram - Backend Developer</title>
-    <meta name="description" content="Backend Developer with 4.5 years of experience in Java, Spring Boot, Microservices, and REST APIs">
+    <title>Nishant Shaligram | Lead Engineer & Full Stack Architect</title>
+    <meta name="description" content="Lead Engineer & Full Stack Architect with 5+ years designing distributed systems, multi-tenant SaaS platforms (10K tenants, 80K orders/day), and the NexusPilot Autonomous Agent Suite.">
+    <meta name="keywords" content="Nishant Shaligram, Lead Engineer, Full Stack Engineer, Node.js, Go, Java, TypeScript, React, Next.js, PostgreSQL, AWS, NexusPilot, System Design">
+    <meta name="author" content="Nishant Shaligram">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="Nishant Shaligram | Lead Engineer & Full Stack Architect">
+    <meta property="og:description" content="5+ years building scalable SaaS observability, high-concurrency microservices, and autonomous multi-agent developer suites.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nishantshaligram.github.io">
+
+    <!-- Fonts: Space Grotesk (Headers), JetBrains Mono (Code & Badges), Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        dark: {
-                          50: '#f8f9fa',
-                          100: '#f1f3f4',
-                          200: '#e8eaed',
-                          300: '#dadce0',
-                          400: '#bdc1c6',
-                          500: '#9aa0a6',
-                          600: '#80868b',
-                          700: '#5f6368',
-                          800: '#3c4043',
-                          900: '#202124',
-                          950: '#171717'
+                        brutal: {
+                            bg: '#FFFDF5',
+                            darkBg: '#0C0D12',
+                            darkCard: '#151824',
+                            yellow: '#FFE600',
+                            cyan: '#00F0FF',
+                            lime: '#00FF66',
+                            coral: '#FF5722',
+                            pink: '#FF4081',
+                            purple: '#B388FF',
+                            darkBorder: '#2D3247'
                         }
                     },
                     fontFamily: {
-                        'mono': ['JetBrains Mono', 'Fira Code', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal-sm': '2px 2px 0px 0px #000000',
+                        'brutal': '4px 4px 0px 0px #000000',
+                        'brutal-md': '6px 6px 0px 0px #000000',
+                        'brutal-lg': '8px 8px 0px 0px #000000',
+                        'brutal-dark': '4px 4px 0px 0px #FFFFFF',
+                        'brutal-dark-md': '6px 6px 0px 0px #FFE600',
+                        'brutal-dark-cyan': '6px 6px 0px 0px #00F0FF',
                     }
                 }
             }
         }
     </script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-        
-        * {
+        /* Neo-Brutalist Design Core */
+        body {
             font-family: 'Inter', sans-serif;
+            background-color: #FFFDF5;
+            color: #0A0A0A;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
-        
-        .font-mono {
+
+        .dark body {
+            background-color: #0C0D12;
+            color: #F3F4F6;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        code, pre, .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
-        
-        .minimal-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid transparent;
+
+        /* Tactile Neo-Brutalist Buttons */
+        .btn-brutal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #000000;
+            box-shadow: 4px 4px 0px #000000;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            cursor: pointer;
         }
-        
-        .minimal-card:hover {
-            transform: translateY(-2px);
-            border-color: #000;
+
+        .btn-brutal:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000000;
         }
-        
-        .dark .minimal-card:hover {
-            border-color: #fff;
+
+        .btn-brutal:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #000000;
         }
-        
-        .skill-bar {
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .dark .btn-brutal {
+            border-color: #FFFFFF;
+            box-shadow: 4px 4px 0px #FFFFFF;
+            color: #000000;
         }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .dark .btn-brutal:hover {
+            box-shadow: 6px 6px 0px #FFE600;
         }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .dark .btn-brutal:active {
+            box-shadow: 1px 1px 0px #FFFFFF;
         }
-        
-        .typing-cursor {
-            animation: blink 1s infinite;
+
+        /* Neo-Brutalist Card */
+        .card-brutal {
+            border: 3px solid #000000;
+            box-shadow: 6px 6px 0px #000000;
+            background: #FFFFFF;
+            transition: all 0.2s ease;
         }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+        .card-brutal:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #000000;
         }
-        
-        .nav-link {
-            position: relative;
+
+        .dark .card-brutal {
+            border-color: #FFFFFF;
+            box-shadow: 6px 6px 0px #FFFFFF;
+            background: #151824;
         }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: currentColor;
-            transition: width 0.3s ease;
+
+        .dark .card-brutal:hover {
+            box-shadow: 8px 8px 0px #00F0FF;
         }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+
+        /* Marquee Ribbon */
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+            user-select: none;
         }
-        
-        .timeline-line {
-            background: linear-gradient(to bottom, #000 0%, #666 50%, #ccc 100%);
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 28s linear infinite;
         }
-        
-        .dark .timeline-line {
-            background: linear-gradient(to bottom, #fff 0%, #999 50%, #333 100%);
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
         }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #000, transparent);
+
+        /* Grid Background Pattern */
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
         }
-        
-        .dark .section-divider {
-            background: linear-gradient(to right, transparent, #fff, transparent);
+
+        .dark .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
         }
-        
-        .theme-transition {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+        /* Pulse Dot */
+        .pulse-online {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.15); }
+        }
+
+        /* Code Block Styling */
+        .terminal-window {
+            border: 3px solid #000000;
+            box-shadow: 6px 6px 0px #000000;
+        }
+
+        .dark .terminal-window {
+            border-color: #FFFFFF;
+            box-shadow: 6px 6px 0px #FFE600;
         }
     </style>
 </head>
-<body class="bg-white dark:bg-dark-950 text-gray-900 dark:text-white theme-transition">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/80 dark:bg-dark-950/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-700 z-50 theme-transition">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold font-mono">NS</div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300">Home</a>
-                    <a href="#about" class="nav-link text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300">About</a>
-                    <a href="#skills" class="nav-link text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300">Skills</a>
-                    <a href="#experience" class="nav-link text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300">Experience</a>
-                    <a href="#projects" class="nav-link text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300">Projects</a>
-                    <a href="#contact" class="nav-link text-sm font-medium hover:text-gray-600 dark:hover:text-gray-300">Contact</a>
-                    <button id="theme-toggle" class="p-2 rounded-lg border border-gray-200 dark:border-dark-700 hover:bg-gray-100 dark:hover:bg-dark-800 theme-transition">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:block"></i>
-                    </button>
-                </div>
-                <div class="md:hidden flex items-center space-x-4">
-                    <button id="theme-toggle-mobile" class="p-2 rounded-lg border border-gray-200 dark:border-dark-700">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:block"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="p-2">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-dark-700 pt-4">
-                <a href="#home" class="block py-2 text-sm font-medium">Home</a>
-                <a href="#about" class="block py-2 text-sm font-medium">About</a>
-                <a href="#skills" class="block py-2 text-sm font-medium">Skills</a>
-                <a href="#experience" class="block py-2 text-sm font-medium">Experience</a>
-                <a href="#projects" class="block py-2 text-sm font-medium">Projects</a>
-                <a href="#contact" class="block py-2 text-sm font-medium">Contact</a>
+<body class="bg-brutal-bg dark:bg-brutal-darkBg text-neutral-900 dark:text-neutral-100 min-h-screen selection:bg-brutal-yellow selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT TICKER -->
+    <div class="border-b-4 border-black dark:border-white bg-brutal-yellow text-black py-2.5 overflow-hidden font-mono text-xs md:text-sm font-extrabold tracking-wider z-50">
+        <div class="marquee-track">
+            <div class="marquee-content flex items-center gap-8">
+                <span>⚡ NISHANT SHALIGRAM // LEAD ENGINEER & FULL STACK ARCHITECT</span>
+                <span>•</span>
+                <span>🔥 MULTI-TENANT OBSERVABILITY: 10K TENANTS ACROSS 12 REGIONS (MONITRUE)</span>
+                <span>•</span>
+                <span>🚀 HIGH-CONCURRENCY FASTIFY + GO MICROSERVICES (40K REQ/MIN)</span>
+                <span>•</span>
+                <span>🛸 NEXUSPILOT AUTONOMOUS AGENT SUITE: DESKTOP + CORTEX + FLEET</span>
+                <span>•</span>
+                <span>📦 ACCOUNTING SYNC PIPELINES: 80K ORDERS/DAY (SYNCBENCH)</span>
+                <span>•</span>
+                <span>🛠️ NODE.JS • GO • TYPESCRIPT • JAVA • REACT / NEXT.JS • POSTGRESQL • AWS & HETZNER</span>
+                <span>•</span>
+                <span>⚡ NISHANT SHALIGRAM // LEAD ENGINEER & FULL STACK ARCHITECT</span>
+                <span>•</span>
+                <span>🔥 MULTI-TENANT OBSERVABILITY: 10K TENANTS ACROSS 12 REGIONS (MONITRUE)</span>
+                <span>•</span>
+                <span>🚀 HIGH-CONCURRENCY FASTIFY + GO MICROSERVICES (40K REQ/MIN)</span>
+                <span>•</span>
+                <span>🛸 NEXUSPILOT AUTONOMOUS AGENT SUITE: DESKTOP + CORTEX + FLEET</span>
+                <span>•</span>
+                <span>📦 ACCOUNTING SYNC PIPELINES: 80K ORDERS/DAY (SYNCBENCH)</span>
+                <span>•</span>
+                <span>🛠️ NODE.JS • GO • TYPESCRIPT • JAVA • REACT / NEXT.JS • POSTGRESQL • AWS & HETZNER</span>
+                <span>•</span>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="fade-in">
-                <h1 class="text-6xl md:text-8xl font-light mb-6 tracking-tight">
-                    Nishant<br>
-                    <span class="font-bold">Shaligram</span>
-                </h1>
+    <!-- MAIN BRUTALIST NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 dark:bg-brutal-darkBg/95 backdrop-blur border-b-4 border-black dark:border-white px-4 md:px-8 py-3.5 transition-colors">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Badge -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 border-3 border-black dark:border-white bg-brutal-yellow text-black flex items-center justify-center font-display font-extrabold text-xl shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+                    NS
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-lg tracking-tight leading-none">NISHANT SHALIGRAM</span>
+                    <span class="font-mono text-xs font-bold text-neutral-600 dark:text-neutral-400 flex items-center gap-1.5 mt-0.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block pulse-online"></span>
+                        LEAD ENGINEER // TECH LEAD
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider">
+                <a href="#about" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-cyan hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">01. About</a>
+                <a href="#projects" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-yellow hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">02. NexusPilot Suite</a>
+                <a href="#skills" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-lime hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">03. Stack</a>
+                <a href="#experience" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-pink hover:text-white dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">04. Experience</a>
+                <a href="#contact" class="px-3.5 py-1.5 border-2 border-black dark:border-white hover:bg-brutal-purple hover:text-black dark:hover:text-black bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] transition-all">05. Connect</a>
+            </nav>
+
+            <!-- Actions & Theme Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] font-mono text-xs font-bold">
+                    <i class="fab fa-github text-sm"></i>
+                    <span>GITHUB</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/nishant-shaligram/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-black dark:border-white bg-[#0A66C2] text-white hover:brightness-110 shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] font-mono text-xs font-bold">
+                    <i class="fab fa-linkedin-in text-sm"></i>
+                    <span>LINKEDIN</span>
+                </a>
+
+                <!-- Theme Switcher -->
+                <button id="themeToggleBtn" aria-label="Toggle theme" class="p-2 border-3 border-black dark:border-white bg-brutal-yellow text-black shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+                    <i id="themeIcon" class="fas fa-moon text-base"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuToggle" aria-label="Toggle mobile menu" class="lg:hidden p-2 border-3 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF]">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
             </div>
-            <div class="fade-in">
-                <div class="text-xl md:text-2xl font-mono mb-8 h-8">
-                    <span id="typing-text"></span><span class="typing-cursor">|</span>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t-3 border-black dark:border-white mt-3 pt-3 pb-2 space-y-2 font-mono text-sm font-bold">
+            <a href="#about" class="block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard">01. ABOUT</a>
+            <a href="#projects" class="block p-2 border-2 border-black dark:border-white bg-brutal-yellow text-black">02. NEXUSPILOT SUITE</a>
+            <a href="#skills" class="block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard">03. TECHNICAL STACK</a>
+            <a href="#experience" class="block p-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard">04. EXPERIENCE TIMELINE</a>
+            <a href="#contact" class="block p-2 border-2 border-black dark:border-white bg-brutal-cyan text-black">05. INITIATE CONTACT</a>
+            <div class="flex gap-2 pt-2">
+                <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-xs"><i class="fab fa-github mr-1"></i> GITHUB</a>
+                <a href="https://www.linkedin.com/in/nishant-shaligram/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 border-2 border-black dark:border-white bg-[#0A66C2] text-white text-xs"><i class="fab fa-linkedin mr-1"></i> LINKEDIN</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: DOSSIER & DIRECTIVES -->
+    <section id="home" class="relative py-16 md:py-24 px-4 md:px-8 border-b-4 border-black dark:border-white bg-grid-pattern">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left 7 cols: Main Dossier -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Status Badge -->
+                    <div class="inline-flex flex-wrap items-center gap-2">
+                        <span class="px-3 py-1 border-2 border-black dark:border-white bg-brutal-lime text-black font-mono text-xs font-black uppercase shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                            <span class="inline-block w-2 h-2 rounded-full bg-black mr-1.5 animate-ping"></span>
+                            ACTIVE ROLE: TECH LEAD // DISTRIBUTED SYSTEMS
+                        </span>
+                        <span class="px-3 py-1 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard font-mono text-xs font-bold text-neutral-800 dark:text-neutral-200 shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                            <i class="fas fa-map-marker-alt text-red-500 mr-1"></i> GURUGRAM, IN • OPEN TO RELOCATION (VADODARA)
+                        </span>
+                    </div>
+
+                    <!-- Mega Headline -->
+                    <div>
+                        <h1 class="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-black dark:text-white uppercase">
+                            NISHANT<br>
+                            <span class="bg-brutal-yellow text-black px-2 border-4 border-black inline-block shadow-[6px_6px_0_0_#000] dark:shadow-[6px_6px_0_0_#FFF] mt-2">SHALIGRAM</span>
+                        </h1>
+                        <p class="font-mono text-base sm:text-lg md:text-xl font-bold mt-6 text-neutral-700 dark:text-neutral-300">
+                            &gt; LEAD ENGINEER • FULL STACK ARCHITECT • DISTRIBUTED SYSTEMS &amp; AI AGENT PLATFORMS
+                        </p>
+                    </div>
+
+                    <!-- Executive Brief -->
+                    <div class="p-5 border-3 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[5px_5px_0_0_#000] dark:shadow-[5px_5px_0_0_#FFF]">
+                        <p class="text-base sm:text-lg leading-relaxed text-neutral-800 dark:text-neutral-200">
+                            <strong>Full Stack &amp; Lead Engineer with 5+ years</strong> designing, developing, and deploying scalable web services across frontend, backend, and cloud infrastructure. Currently leading a 5-engineer team building <strong>Monitrue</strong>—a multi-tenant SaaS observability platform serving <strong>10,000 tenants across 12 distributed regions</strong>.
+                        </p>
+                        <div class="mt-4 pt-4 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700 flex flex-wrap gap-2 text-xs font-mono font-bold">
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">NODE.JS / FASTIFY</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">GO (GOLANG)</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">TYPESCRIPT</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">JAVA SPRING BOOT</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">REACT / NEXT.JS</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">POSTGRESQL</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">AWS &amp; HETZNER</span>
+                            <span class="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-600">KAFKA</span>
+                        </div>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="btn-brutal px-6 py-3.5 bg-brutal-yellow text-black text-sm md:text-base">
+                            <i class="fas fa-microchip mr-2"></i> EXPLORE NEXUSPILOT SUITE
+                        </a>
+                        <a href="#experience" class="btn-brutal px-5 py-3.5 bg-white dark:bg-brutal-darkCard text-black dark:text-white text-sm md:text-base">
+                            <i class="fas fa-history mr-2"></i> WORK LEDGER
+                        </a>
+                        <a href="#contact" class="btn-brutal px-5 py-3.5 bg-brutal-cyan text-black text-sm md:text-base">
+                            <i class="fas fa-terminal mr-2"></i> INITIATE CONTACT
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right 5 cols: Profile Card & Terminal Spec -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Photo & Badge Card -->
+                    <div class="card-brutal p-5 relative overflow-hidden">
+                        <div class="flex flex-col sm:flex-row gap-5 items-center">
+                            <div class="relative w-36 h-36 sm:w-44 sm:h-44 shrink-0 border-3 border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF] overflow-hidden bg-neutral-200">
+                                <img src="assets/images/nishant_shaligram.jpg" alt="Nishant Shaligram" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-300">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-[10px] font-mono font-bold text-center py-0.5 uppercase tracking-wider">
+                                    VERIFIED PROFILER
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-center sm:text-left">
+                                <span class="px-2 py-0.5 bg-brutal-coral text-white font-mono text-[10px] font-black uppercase tracking-wider border border-black">
+                                    CORE SPECIALIZATION
+                                </span>
+                                <h3 class="font-display font-extrabold text-xl sm:text-2xl leading-tight">
+                                    System Architecture &amp; Lead SDE
+                                </h3>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400 font-mono">
+                                    Multi-Tenant Observability • High Concurrency • Distributed Agent Protocols
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start">
+                                    <button onclick="copyToClipboard('nishant.shaligram@gmail.com', 'Email copied!')" class="text-xs font-mono font-bold px-2 py-1 border-2 border-black dark:border-white bg-brutal-yellow text-black hover:brightness-105 active:scale-95 transition-all">
+                                        <i class="fas fa-copy mr-1"></i> COPY EMAIL
+                                    </button>
+                                    <a href="tel:+917016322161" class="text-xs font-mono font-bold px-2 py-1 border-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white hover:brightness-105">
+                                        <i class="fas fa-phone mr-1"></i> CALL
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Terminal Readout -->
+                        <div class="mt-5 border-2 border-black dark:border-white bg-black text-emerald-400 p-3.5 font-mono text-xs leading-relaxed">
+                            <div class="flex items-center justify-between pb-2 mb-2 border-b border-neutral-800 text-neutral-400 text-[10px]">
+                                <span>TERMINAL // AGY-TELEMETRY</span>
+                                <span>STATUS: 200 OK</span>
+                            </div>
+                            <p class="text-neutral-300"><span class="text-brutal-yellow">$</span> npx nexus-pilot-cortex status --probe</p>
+                            <p class="text-emerald-400 mt-1">✓ Role: Tech Lead &amp; Full Stack Architect</p>
+                            <p class="text-emerald-400">✓ Production Footprint: 10,000 tenants across 12 regions</p>
+                            <p class="text-emerald-400">✓ Rate Limiter: 40,000 req/min sustained zero-drop</p>
+                            <p class="text-cyan-400">✓ Suite: NexusPilot [Desktop + Cortex + Fleet]</p>
+                        </div>
+                    </div>
+
+                    <!-- Direct Connect Quick Bar -->
+                    <div class="grid grid-cols-2 gap-3 font-mono text-xs font-bold">
+                        <a href="https://www.linkedin.com/in/nishant-shaligram/" target="_blank" rel="noopener noreferrer" class="p-3 border-3 border-black dark:border-white bg-[#0A66C2] text-white flex items-center justify-between shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF] hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+                            <span><i class="fab fa-linkedin mr-1.5"></i> LINKEDIN</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="p-3 border-3 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white flex items-center justify-between shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF] hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
+                            <span><i class="fab fa-github mr-1.5"></i> GITHUB</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY IMPACT METRICS STRIP -->
+    <section class="py-10 px-4 md:px-8 border-b-4 border-black dark:border-white bg-white dark:bg-brutal-darkBg">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Metric 1 -->
+                <div class="card-brutal p-5 bg-brutal-yellow text-black">
+                    <div class="font-mono text-xs font-black uppercase tracking-wider text-black/70 mb-1">
+                        SAAS TENANTS
+                    </div>
+                    <div class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight">
+                        10K+
+                    </div>
+                    <p class="font-mono text-xs font-bold mt-2 text-black/80">
+                        Multi-tenant observability scaled horizontally across 12 distributed regions.
+                    </p>
+                </div>
+
+                <!-- Metric 2 -->
+                <div class="card-brutal p-5 bg-brutal-cyan text-black">
+                    <div class="font-mono text-xs font-black uppercase tracking-wider text-black/70 mb-1">
+                        THROUGHPUT PEAK
+                    </div>
+                    <div class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight">
+                        40K<span class="text-2xl">/m</span>
+                    </div>
+                    <p class="font-mono text-xs font-bold mt-2 text-black/80">
+                        Tenant-aware rate limiting sustaining 40K req/min without degradation.
+                    </p>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="card-brutal p-5 bg-brutal-lime text-black">
+                    <div class="font-mono text-xs font-black uppercase tracking-wider text-black/70 mb-1">
+                        TRANSACTION VOLUME
+                    </div>
+                    <div class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight">
+                        80K<span class="text-2xl">/d</span>
+                    </div>
+                    <p class="font-mono text-xs font-bold mt-2 text-black/80">
+                        E-commerce sync &amp; orders per day processed across QuickBooks, Xero, and Sage.
+                    </p>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="card-brutal p-5 bg-brutal-purple text-black">
+                    <div class="font-mono text-xs font-black uppercase tracking-wider text-black/70 mb-1">
+                        LATENCY DROP
+                    </div>
+                    <div class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight">
+                        ~40%
+                    </div>
+                    <p class="font-mono text-xs font-bold mt-2 text-black/80">
+                        Async background job latency reduction powered by Kafka message queues.
+                    </p>
                 </div>
             </div>
-            <div class="fade-in">
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-                    Backend Developer with 4.5 years of experience crafting scalable, secure, and high-performance web applications.
+        </div>
+    </section>
+
+    <!-- SECTION: THE NEXUSPILOT AUTONOMOUS AGENT SUITE -->
+    <section id="projects" class="py-16 md:py-24 px-4 md:px-8 border-b-4 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkBg">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b-4 border-black dark:border-white">
+                <div>
+                    <div class="inline-block px-3 py-1 border-2 border-black dark:border-white bg-brutal-coral text-white font-mono text-xs font-black uppercase mb-3 shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                        OPEN-SOURCE AGENT INFRASTRUCTURE
+                    </div>
+                    <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight">
+                        THE NEXUSPILOT FAMILY SUITE
+                    </h2>
+                    <p class="font-mono text-sm sm:text-base text-neutral-700 dark:text-neutral-300 max-w-3xl mt-2 font-medium">
+                        Autonomous Computer-Use, Cognitive Memory Telemetry, and Distributed Multi-Agent Swarm Orchestration engineered for Google Antigravity, Claude Code, and Model Context Protocol (MCP) clients.
+                    </p>
+                </div>
+
+                <!-- Filter Chips -->
+                <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                    <button onclick="filterProjects('all')" class="project-filter-btn active px-3 py-2 border-2 border-black dark:border-white bg-brutal-yellow text-black shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF]">ALL THREE (3)</button>
+                    <button onclick="filterProjects('desktop')" class="project-filter-btn px-3 py-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF]">SYS::HANDS</button>
+                    <button onclick="filterProjects('cortex')" class="project-filter-btn px-3 py-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF]">SYS::BRAIN</button>
+                    <button onclick="filterProjects('fleet')" class="project-filter-btn px-3 py-2 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shadow-[3px_3px_0_0_#000] dark:shadow-[3px_3px_0_0_#FFF]">SYS::GRID</button>
+                </div>
+            </div>
+
+            <!-- Suite Architecture Diagram Block -->
+            <div class="p-6 border-3 border-black dark:border-white bg-black text-white font-mono text-xs md:text-sm shadow-[6px_6px_0_0_#000] dark:shadow-[6px_6px_0_0_#FFE600] overflow-x-auto">
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-neutral-700 text-neutral-400">
+                    <span class="text-brutal-cyan font-bold">&gt; NEXUSPILOT ARCHITECTURAL TOPOLOGY (TRIPTYCH TRIAD)</span>
+                    <span class="bg-neutral-800 px-2 py-0.5 text-xs text-neutral-200">PRODUCTION READY</span>
+                </div>
+                <pre class="leading-relaxed text-neutral-200">
+               ┌────────────────────────────────────────────────────────┐
+               │              COGNITIVE BRAIN &amp; TELEMETRY                │
+               │   nexus-pilot-cortex  [Memory, Token Badging, Cache]   │
+               └───────────────────────────┬────────────────────────────┘
+                                           │
+                 ┌─────────────────────────┴─────────────────────────┐
+                 │                                                   │
+  ┌──────────────┴──────────────────────────┐    ┌───────────────────┴────────────────────────┐
+  │     INTERACTIVE HANDS &amp; ACTUATION       │    │      DISTRIBUTED SWARM GRID &amp; WORKTREES     │
+  │   nexus-pilot-desktop                   │    │   nexus-pilot-fleet                        │
+  │   [Win32 SendInput, UIA COM, Vision]    │    │   [DAG Engine, Isolated Git Worktrees]     │
+  └─────────────────────────────────────────┘    └────────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <!-- PROJECTS GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- PROJECT 1: NEXUSPILOT DESKTOP -->
+                <article id="project-desktop" class="project-card card-brutal flex flex-col justify-between overflow-hidden">
+                    <div>
+                        <!-- Header Banner -->
+                        <div class="relative border-b-3 border-black dark:border-white bg-neutral-900 h-44 overflow-hidden">
+                            <img src="assets/images/nexus-pilot-desktop-banner.jpg" alt="NexusPilot Desktop" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-300">
+                            <div class="absolute top-3 left-3 bg-brutal-yellow text-black font-mono text-[11px] font-black px-2.5 py-1 border-2 border-black shadow-[2px_2px_0_0_#000]">
+                                SYS::HANDS // MCP + PLUGIN
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur text-white font-mono text-[10px] px-2 py-0.5 border border-white">
+                                WIN32 + UIA COM
+                            </div>
+                        </div>
+
+                        <!-- Content Body -->
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <h3 class="font-display font-extrabold text-2xl md:text-3xl uppercase tracking-tight">
+                                    NexusPilot: Desktop
+                                </h3>
+                                <p class="font-mono text-xs font-bold text-neutral-600 dark:text-neutral-400 mt-1">
+                                    Universal Desktop Computer-Use MCP Suite &amp; Antigravity Plugin
+                                </p>
+                            </div>
+
+                            <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                                Bridges text-native AI coding agents with native Windows desktop applications (Visual Studio, database clients, Figma Desktop, OS panels) using dual-modal perception and hardware kinematic actuation.
+                            </p>
+
+                            <!-- Key Capabilities List -->
+                            <div class="space-y-2 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700 pt-3 text-xs font-mono">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-coral font-black">▶</span>
+                                    <span><strong>Dual-Modal Perception:</strong> Typed COM UIA tree extraction + sub-30ms DWM screen capture for 100% click precision.</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-coral font-black">▶</span>
+                                    <span><strong>Per-Monitor DPI v2:</strong> Win32 SendInput normalized coordinate actuation immune to 100%–200% display scale drift.</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-coral font-black">▶</span>
+                                    <span><strong>Hardware Failsafe:</strong> Top-left corner mouse slamming (0,0) immediate abort + HWND application boundary lock.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer & Install Snippet -->
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-900 border-2 border-black dark:border-white p-2.5 font-mono text-xs flex items-center justify-between">
+                            <span class="truncate text-neutral-800 dark:text-neutral-200">powershell -File scripts/install-agents.ps1</span>
+                            <button onclick="copyToClipboard('powershell -ExecutionPolicy Bypass -File scripts/install-agents.ps1', 'Install command copied!')" class="ml-2 px-2 py-0.5 bg-brutal-yellow text-black font-bold border border-black hover:brightness-105 active:scale-95 text-[11px]">
+                                COPY
+                            </button>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">PYTHON 3.10+</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">WIN32 API</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">JSON-RPC MCP</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">ANTIGRAVITY</span>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <a href="https://github.com/nishantshaligram/NexusPilot" target="_blank" rel="noopener noreferrer" class="btn-brutal flex-1 py-2.5 bg-white dark:bg-brutal-darkCard text-black dark:text-white text-xs">
+                                <i class="fab fa-github mr-1.5"></i> REPOSITORY
+                            </a>
+                            <a href="#contact" class="btn-brutal flex-1 py-2.5 bg-brutal-yellow text-black text-xs">
+                                <i class="fas fa-play mr-1.5"></i> SPEC GUIDE
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PROJECT 2: NEXUSPILOT CORTEX -->
+                <article id="project-cortex" class="project-card card-brutal flex flex-col justify-between overflow-hidden">
+                    <div>
+                        <!-- Header Banner -->
+                        <div class="relative border-b-3 border-black dark:border-white bg-[#10141D] h-44 flex items-center justify-center p-6 overflow-hidden">
+                            <div class="w-24 h-24 p-3 bg-white dark:bg-brutal-darkCard border-3 border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF] flex items-center justify-center">
+                                <img src="assets/images/nexus-cortex-logo.svg" alt="NexusPilot Cortex" class="w-full h-full object-contain">
+                            </div>
+                            <div class="absolute top-3 left-3 bg-brutal-cyan text-black font-mono text-[11px] font-black px-2.5 py-1 border-2 border-black shadow-[2px_2px_0_0_#000]">
+                                SYS::BRAIN // MEMORY &amp; TELEMETRY
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur text-white font-mono text-[10px] px-2 py-0.5 border border-white">
+                                FAST-MCP + SQLITE
+                            </div>
+                        </div>
+
+                        <!-- Content Body -->
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <h3 class="font-display font-extrabold text-2xl md:text-3xl uppercase tracking-tight">
+                                    NexusPilot: Cortex
+                                </h3>
+                                <p class="font-mono text-xs font-bold text-neutral-600 dark:text-neutral-400 mt-1">
+                                    Cognitive Telemetry, Memory Management &amp; Context Compressor
+                                </p>
+                            </div>
+
+                            <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                                Cognitive governor for Antigravity and Claude agents. Features real-time turn token badging and live USD pricing, persistent SQLite memory across sessions, and Gemini prefix-cache alignment.
+                            </p>
+
+                            <!-- Key Capabilities List -->
+                            <div class="space-y-2 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700 pt-3 text-xs font-mono">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-cyan font-black">▶</span>
+                                    <span><strong>Token Telemetry &amp; Badging:</strong> In/Cache/Out counters, live token generation speed (tok/s), and real-time USD cost badging.</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-cyan font-black">▶</span>
+                                    <span><strong>NexusMem SQLite Engine:</strong> Autonomous zero-shot preference extraction + BM25 keyword memory recall across sessions.</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-cyan font-black">▶</span>
+                                    <span><strong>Adaptive Context Compressor:</strong> Stack trace folding &amp; cache alignment achieving <strong>85–95%+ cache hit rates</strong>.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer & Install Snippet -->
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-900 border-2 border-black dark:border-white p-2.5 font-mono text-xs flex items-center justify-between">
+                            <span class="truncate text-neutral-800 dark:text-neutral-200">npx nexus-pilot-cortex install</span>
+                            <button onclick="copyToClipboard('npx nexus-pilot-cortex install', 'NPX command copied!')" class="ml-2 px-2 py-0.5 bg-brutal-cyan text-black font-bold border border-black hover:brightness-105 active:scale-95 text-[11px]">
+                                COPY
+                            </button>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">FAST-MCP</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">SQLITE 3</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">BM25 INDEX</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">NPX CLI</span>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="btn-brutal flex-1 py-2.5 bg-white dark:bg-brutal-darkCard text-black dark:text-white text-xs">
+                                <i class="fab fa-github mr-1.5"></i> REPOSITORY
+                            </a>
+                            <a href="#contact" class="btn-brutal flex-1 py-2.5 bg-brutal-cyan text-black text-xs">
+                                <i class="fas fa-bolt mr-1.5"></i> VIEW TOOLS
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PROJECT 3: NEXUSPILOT FLEET -->
+                <article id="project-fleet" class="project-card card-brutal flex flex-col justify-between overflow-hidden">
+                    <div>
+                        <!-- Header Banner -->
+                        <div class="relative border-b-3 border-black dark:border-white bg-[#130E24] h-44 flex flex-col items-center justify-center p-6 overflow-hidden">
+                            <div class="text-center">
+                                <div class="inline-block p-2 bg-brutal-lime border-3 border-black text-black font-display font-black text-2xl shadow-[3px_3px_0_0_#000]">
+                                    FLEET // 🛸⚡
+                                </div>
+                                <div class="font-mono text-xs text-white/80 mt-2 font-bold">
+                                    DAG PIPELINE &amp; SWARM MULTIPLEXER
+                                </div>
+                            </div>
+                            <div class="absolute top-3 left-3 bg-brutal-lime text-black font-mono text-[11px] font-black px-2.5 py-1 border-2 border-black shadow-[2px_2px_0_0_#000]">
+                                SYS::GRID // SWARMS
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur text-white font-mono text-[10px] px-2 py-0.5 border border-white">
+                                GIT WORKTREES + DAG
+                            </div>
+                        </div>
+
+                        <!-- Content Body -->
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <h3 class="font-display font-extrabold text-2xl md:text-3xl uppercase tracking-tight">
+                                    NexusPilot: Fleet
+                                </h3>
+                                <p class="font-mono text-xs font-bold text-neutral-600 dark:text-neutral-400 mt-1">
+                                    Distributed Multi-Agent Swarm Orchestrator &amp; DAG Engine
+                                </p>
+                            </div>
+
+                            <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                                Mission control enabling 5 to 30+ autonomous worker agents to collaborate simultaneously on large-scale refactoring and migrations without git file collisions or index locking.
+                            </p>
+
+                            <!-- Key Capabilities List -->
+                            <div class="space-y-2 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700 pt-3 text-xs font-mono">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-lime font-black">▶</span>
+                                    <span><strong>Autonomous DAG Decomposition:</strong> Breaks massive directives into topologically sorted dependency graphs for parallel dispatch.</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-lime font-black">▶</span>
+                                    <span><strong>Git Worktree Multiplexer:</strong> Zero-collision isolated disk copies (.fleet/worktrees/worker-*) with 0.0% merge conflict rate.</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-brutal-lime font-black">▶</span>
+                                    <span><strong>Two-Key Consensus Protocol:</strong> Triad separation (Author implements, Reviewer grants Key 1, Verifier runs sandbox tests for Key 2).</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer & Install Snippet -->
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-900 border-2 border-black dark:border-white p-2.5 font-mono text-xs flex items-center justify-between">
+                            <span class="truncate text-neutral-800 dark:text-neutral-200">npx nexus-pilot-fleet install</span>
+                            <button onclick="copyToClipboard('npx nexus-pilot-fleet install', 'NPX command copied!')" class="ml-2 px-2 py-0.5 bg-brutal-lime text-black font-bold border border-black hover:brightness-105 active:scale-95 text-[11px]">
+                                COPY
+                            </button>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">GIT WORKTREE</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">DAG ENGINE</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">EVENT BUS</span>
+                            <span class="px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 border border-black dark:border-neutral-700">MULTI-AGENT</span>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="btn-brutal flex-1 py-2.5 bg-white dark:bg-brutal-darkCard text-black dark:text-white text-xs">
+                                <i class="fab fa-github mr-1.5"></i> REPOSITORY
+                            </a>
+                            <a href="#contact" class="btn-brutal flex-1 py-2.5 bg-brutal-lime text-black text-xs">
+                                <i class="fas fa-network-wired mr-1.5"></i> SWARM DOCS
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ABOUT & ENGINEERING PHILOSOPHY -->
+    <section id="about" class="py-16 md:py-24 px-4 md:px-8 border-b-4 border-black dark:border-white bg-white dark:bg-brutal-darkBg">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="pb-6 border-b-4 border-black dark:border-white">
+                <span class="px-3 py-1 border-2 border-black dark:border-white bg-brutal-purple text-black font-mono text-xs font-black uppercase shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                    DOSSIER // ARCHITECTURAL CREED
+                </span>
+                <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight mt-3">
+                    ENGINEERING PHILOSOPHY
+                </h2>
+                <p class="font-mono text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mt-1 font-semibold">
+                    Leading teams, designing multi-tenant SaaS, and eliminating production surprises.
                 </p>
             </div>
-            <div class="fade-in flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" class="px-8 py-3 bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
-                    Get In Touch
-                </a>
-                <a href="#projects" class="px-8 py-3 border border-black dark:border-white font-medium hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
-                    View Work
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider mx-auto max-w-xs"></div>
-
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="fade-in">
-                    <h2 class="text-4xl md:text-5xl font-light mb-8">About</h2>
-                    <div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
-                        <p>
-                            I'm a passionate Backend Developer with 4.5 years of experience in developing scalable, secure, and high-performance web applications using Java and Spring Boot.
-                        </p>
-                        <p>
-                            Currently pursuing Master's in Computer Science from Woolf x Scaler while working as a Sr. Software Development Engineer at GeekAssured, where I design and develop RESTful APIs for SaaS-based accounting automation platforms.
-                        </p>
-                        <p>
-                            I have proven expertise in designing RESTful APIs, building microservices architectures, integrating third-party services, and optimizing database performance.
-                        </p>
-                    </div>
-                </div>
-                <div class="fade-in">
-                    <div class="grid grid-cols-2 gap-8">
-                        <div class="minimal-card p-6 border border-gray-200 dark:border-dark-700">
-                            <div class="text-3xl font-bold mb-2">4.5+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Left 7 cols: Detailed Prose -->
+                <div class="lg:col-span-7 space-y-6 text-neutral-800 dark:text-neutral-200 leading-relaxed text-base sm:text-lg">
+                    <p>
+                        I am a <strong>Lead Engineer and Distributed Systems Architect</strong> with deep, hands-on ownership across frontend, backend, and cloud infrastructure. Currently, as <strong>Tech Lead at GeekAssured</strong>, I lead a team of 5 engineers architecting <strong>Monitrue</strong>—a mission-critical multi-tenant SaaS monitoring and observability platform serving <strong>10,000 tenants across 12 distributed regions</strong>.
+                    </p>
+                    <p>
+                        My architectural ethos centers on <strong>pragmatic scalability and zero-tolerance for premature abstractions</strong>. I believe that distributed systems should be simple, observable, and resilient under harsh failure modes:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 border-3 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkCard shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF]">
+                            <h4 class="font-display font-black text-lg uppercase text-brutal-coral dark:text-brutal-yellow">01. Strict Tenant Isolation</h4>
+                            <p class="text-xs font-mono mt-1 text-neutral-600 dark:text-neutral-400">
+                                Enforcing multi-tenant PostgreSQL schemas with dynamic tenant-aware rate limiting (40K req/min) to eliminate noisy-neighbor latency spikes.
+                            </p>
                         </div>
-                        <div class="minimal-card p-6 border border-gray-200 dark:border-dark-700">
-                            <div class="text-3xl font-bold mb-2">50+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                        <div class="p-4 border-3 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkCard shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF]">
+                            <h4 class="font-display font-black text-lg uppercase text-emerald-600 dark:text-brutal-lime">02. Low-Footprint Probing</h4>
+                            <p class="text-xs font-mono mt-1 text-neutral-600 dark:text-neutral-400">
+                                Engineering high-concurrency probing microservices in <strong>Go (Golang)</strong> paired with <strong>Fastify + TypeScript</strong> for microsecond response times.
+                            </p>
                         </div>
-                        <div class="minimal-card p-6 border border-gray-200 dark:border-dark-700">
-                            <div class="text-3xl font-bold mb-2">10+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Technologies</div>
+                        <div class="p-4 border-3 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkCard shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF]">
+                            <h4 class="font-display font-black text-lg uppercase text-cyan-600 dark:text-brutal-cyan">03. Async Decoupling</h4>
+                            <p class="text-xs font-mono mt-1 text-neutral-600 dark:text-neutral-400">
+                                Leveraging <strong>Apache Kafka</strong> and queue-based backpressure to process 80K orders/day while reducing critical path latency by ~40%.
+                            </p>
                         </div>
-                        <div class="minimal-card p-6 border border-gray-200 dark:border-dark-700">
-                            <div class="text-3xl font-bold mb-2">3</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Certifications</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 space-y-4">
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-phone w-5 mr-3"></i>
-                            <span>+91 70163 22161</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-envelope w-5 mr-3"></i>
-                            <span>nishantshaligram@gmail.com</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-map-marker-alt w-5 mr-3"></i>
-                            <span>Gurgaon, India</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider mx-auto max-w-xs"></div>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-light mb-16 text-center fade-in">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Languages -->
-                <div class="minimal-card p-8 border border-gray-200 dark:border-dark-700 fade-in">
-                    <h3 class="text-xl font-semibold mb-6">Languages</h3>
-                    <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>Java</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>JavaScript</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>PHP</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="70"></div>
-                            </div>
+                        <div class="p-4 border-3 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkCard shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF]">
+                            <h4 class="font-display font-black text-lg uppercase text-purple-600 dark:text-brutal-purple">04. Engineering Culture</h4>
+                            <p class="text-xs font-mono mt-1 text-neutral-600 dark:text-neutral-400">
+                                Driving architectural review boards, mentoring junior/mid-level engineers, enforcing disciplined trade-off analysis, and standardizing CI/CD deployments.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Frameworks -->
-                <div class="minimal-card p-8 border border-gray-200 dark:border-dark-700 fade-in">
-                    <h3 class="text-xl font-semibold mb-6">Frameworks</h3>
-                    <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>Spring Boot</span>
-                                <span>95%</span>
+                <!-- Right 5 cols: Credentials & Education Snapshot -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Academic Pedigree Card -->
+                    <div class="card-brutal p-6 space-y-4">
+                        <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                            <span class="font-mono text-xs font-black uppercase text-neutral-600 dark:text-neutral-400">ACADEMIC &amp; CREDENTIALS</span>
+                            <span class="bg-brutal-lime text-black font-mono text-[10px] font-bold px-2 py-0.5 border border-black">VERIFIED</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- MS -->
+                            <div class="border-l-4 border-black dark:border-white pl-3.5">
+                                <span class="font-mono text-[11px] font-bold text-neutral-500 dark:text-neutral-400">MARCH 2024 – PRESENT</span>
+                                <h4 class="font-display font-black text-lg">M.S. in Computer Science</h4>
+                                <p class="text-xs font-mono text-neutral-700 dark:text-neutral-300">Woolf × Scaler (Remote, India)</p>
                             </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="95"></div>
+
+                            <!-- BE -->
+                            <div class="border-l-4 border-black dark:border-white pl-3.5">
+                                <span class="font-mono text-[11px] font-bold text-neutral-500 dark:text-neutral-400">2013 – 2017</span>
+                                <h4 class="font-display font-black text-lg">B.E. in Computer Engineering</h4>
+                                <p class="text-xs font-mono text-neutral-700 dark:text-neutral-300">Gujarat Technological University, Gujarat, India</p>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>Node.js</span>
-                                <span>70%</span>
+
+                        <!-- Scaler Certifications -->
+                        <div class="pt-4 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700">
+                            <div class="font-mono text-xs font-bold uppercase mb-2 text-neutral-600 dark:text-neutral-400">
+                                SCALER SPECIALIZED ACCREDITATIONS:
                             </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="70"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>React.js</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="65"></div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono font-bold">
+                                <span class="px-2.5 py-1 bg-brutal-yellow text-black border-2 border-black">HIGH-LEVEL DESIGN (HLD)</span>
+                                <span class="px-2.5 py-1 bg-brutal-cyan text-black border-2 border-black">LOW-LEVEL DESIGN (LLD)</span>
+                                <span class="px-2.5 py-1 bg-brutal-lime text-black border-2 border-black">ADVANCED JAVA</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Tools & Technologies -->
-                <div class="minimal-card p-8 border border-gray-200 dark:border-dark-700 fade-in">
-                    <h3 class="text-xl font-semibold mb-6">Tools & Tech</h3>
-                    <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>MySQL/PostgreSQL</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>Docker</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span>AWS</span>
-                                <span>60%</span>
-                            </div>
-                            <div class="bg-gray-200 dark:bg-dark-800 h-1">
-                                <div class="skill-bar bg-black dark:bg-white h-1" data-width="60"></div>
+                    <!-- Relocation & Availability Callout -->
+                    <div class="p-5 border-3 border-black dark:border-white bg-brutal-yellow text-black shadow-[5px_5px_0_0_#000] dark:shadow-[5px_5px_0_0_#FFF]">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-compass text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-display font-black text-xl leading-tight">LOCATION &amp; MOBILITY</h4>
+                                <p class="font-mono text-xs font-bold mt-1 leading-relaxed">
+                                    Currently located in <strong>Gurugram, IN</strong>. Actively open to on-site or hybrid roles in <strong>Vadodara, Gujarat</strong>, as well as select high-impact remote engineering leadership opportunities globally.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider mx-auto max-w-xs"></div>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-light mb-16 text-center fade-in">Experience</h2>
-            <div class="space-y-12">
-                <!-- Experience Item 1 -->
-                <div class="relative pl-8 fade-in">
-                    <div class="absolute left-0 top-0 w-3 h-3 bg-black dark:bg-white rounded-full"></div>
-                    <div class="absolute left-1.5 top-3 w-0.5 h-full timeline-line"></div>
-                    <div class="ml-6">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold">Sr. Software Development Engineer</h3>
-                                <p class="text-gray-600 dark:text-gray-400">GeekAssured, Gurgaon</p>
-                            </div>
-                            <span class="text-sm text-gray-500 font-mono">Oct 2023 – Present</span>
-                        </div>
-                        <ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
-                            <li>• Designed and developed RESTful APIs using Java and Spring Boot for SaaS-based accounting automation platform</li>
-                            <li>• Integrated third-party APIs (QuickBooks, Xyro, Sage) for seamless financial data synchronization</li>
-                            <li>• Built microservices to manage licensing, user subscriptions, and payment systems</li>
-                            <li>• Implemented background job scheduling and asynchronous processing using queues</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative pl-8 fade-in">
-                    <div class="absolute left-0 top-0 w-3 h-3 bg-black dark:bg-white rounded-full"></div>
-                    <div class="absolute left-1.5 top-3 w-0.5 h-full timeline-line"></div>
-                    <div class="ml-6">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold">Sr. Software Development Engineer</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Knovator Technologies, Surat</p>
-                            </div>
-                            <span class="text-sm text-gray-500 font-mono">Jun 2021 – Oct 2023</span>
-                        </div>
-                        <ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
-                            <li>• Led backend development for various client projects with Java-Spring Boot and PHP</li>
-                            <li>• Developed and consumed REST APIs, integrated payment gateways, and improved system performance</li>
-                            <li>• Collaborated with frontend teams and maintained technical documentation</li>
-                            <li>• Managed client communications and delivered timely solutions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience Item 3 -->
-                <div class="relative pl-8 fade-in">
-                    <div class="absolute left-0 top-0 w-3 h-3 bg-black dark:bg-white rounded-full"></div>
-                    <div class="ml-6">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold">WordPress Developer</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Cirkle Studio Pvt. Ltd., Surat</p>
-                            </div>
-                            <span class="text-sm text-gray-500 font-mono">Sep 2018 – May 2019</span>
-                        </div>
-                        <ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
-                            <li>• Customized WordPress themes and plugins to match client requirements</li>
-                            <li>• Developed responsive websites and handled regular maintenance tasks</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider mx-auto max-w-xs"></div>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-light mb-16 text-center fade-in">Selected Work</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="minimal-card border border-gray-200 dark:border-dark-700 overflow-hidden fade-in">
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-semibold">WooAsync</h3>
-                            <div class="flex space-x-2">
-                                <i class="fab fa-github text-gray-400 hover:text-black dark:hover:text-white cursor-pointer"></i>
-                                <i class="fas fa-external-link-alt text-gray-400 hover:text-black dark:hover:text-white cursor-pointer"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                            WooCommerce to QuickBooks Online synchronization platform with REST APIs for WordPress plugin and Java Spring Boot SaaS backend.
-                        </p>
-                        <div class="mb-6">
-                            <h4 class="font-semibold mb-3 text-sm">Key Features</h4>
-                            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                                <li>• Integrated Intuit's SDK for QuickBooks Online</li>
-                                <li>• Implemented licensing and subscription management</li>
-                                <li>• Queue-based background job processing</li>
-                                <li>• Microservices architecture with Spring Boot</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Java</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Spring Boot</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">REST API</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">QuickBooks</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="minimal-card border border-gray-200 dark:border-dark-700 overflow-hidden fade-in">
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-semibold">Rentopian Plugin</h3>
-                            <div class="flex space-x-2">
-                                <i class="fab fa-github text-gray-400 hover:text-black dark:hover:text-white cursor-pointer"></i>
-                                <i class="fas fa-external-link-alt text-gray-400 hover:text-black dark:hover:text-white cursor-pointer"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                            Miles-based shipping rate calculation system using Google Distance Matrix API for dynamic rate calculation and warehouse management.
-                        </p>
-                        <div class="mb-6">
-                            <h4 class="font-semibold mb-3 text-sm">Key Features</h4>
-                            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                                <li>• Google Distance Matrix API integration</li>
-                                <li>• Rule engine for warehouse management</li>
-                                <li>• Dynamic shipping fee calculation logic</li>
-                                <li>• Microservices architecture</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Java</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Spring Boot</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Google API</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Microservices</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider mx-auto max-w-xs"></div>
-
-    <!-- Education & Certifications -->
-    <section class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-light mb-16 text-center fade-in">Education & Certifications</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Education -->
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-8">Education</h3>
-                    <div class="space-y-6">
-                        <div class="minimal-card p-6 border border-gray-200 dark:border-dark-700">
-                            <h4 class="text-lg font-semibold mb-2">Master's in Computer Science</h4>
-                            <p class="text-gray-600 dark:text-gray-400 mb-1">Woolf x Scaler</p>
-                            <p class="text-sm text-gray-500 font-mono">2024 – Present</p>
-                        </div>
-                        <div class="minimal-card p-6 border border-gray-200 dark:border-dark-700">
-                            <h4 class="text-lg font-semibold mb-2">B.E. in Computer Engineering</h4>
-                            <p class="text-gray-600 dark:text-gray-400 mb-1">VIT, Bharuch</p>
-                            <p class="text-sm text-gray-500 font-mono">CGPA: 8.5 | Graduated: March 2017</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certifications -->
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-8">Certifications</h3>
-                    <div class="space-y-4">
-                        <div class="minimal-card p-4 border border-gray-200 dark:border-dark-700 flex items-center">
-                            <div class="w-2 h-2 bg-black dark:bg-white rounded-full mr-4"></div>
-                            <div>
-                                <h4 class="font-semibold">Java Certification</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Woolf x Scaler</p>
-                            </div>
-                        </div>
-                        <div class="minimal-card p-4 border border-gray-200 dark:border-dark-700 flex items-center">
-                            <div class="w-2 h-2 bg-black dark:bg-white rounded-full mr-4"></div>
-                            <div>
-                                <h4 class="font-semibold">Low-Level Design</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Woolf x Scaler</p>
-                            </div>
-                        </div>
-                        <div class="minimal-card p-4 border border-gray-200 dark:border-dark-700 flex items-center">
-                            <div class="w-2 h-2 bg-black dark:bg-white rounded-full mr-4"></div>
-                            <div>
-                                <h4 class="font-semibold">High-Level Design</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Woolf x Scaler</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider mx-auto max-w-xs"></div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-light mb-8 fade-in">Let's Connect</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 fade-in">
-                I'm always interested in discussing new opportunities and innovative projects.
-            </p>
+    <!-- SECTION: TECHNICAL ARSENAL (BRUTALIST SPEC MATRIX) -->
+    <section id="skills" class="py-16 md:py-24 px-4 md:px-8 border-b-4 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkBg">
+        <div class="max-w-7xl mx-auto space-y-12">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <!-- Contact Info -->
-                <div class="fade-in text-left">
-                    <h3 class="text-xl font-semibold mb-6">Get in touch</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-phone w-5 mr-4 text-gray-400"></i>
-                            <span>+91 70163 22161</span>
+            <div class="pb-6 border-b-4 border-black dark:border-white flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="px-3 py-1 border-2 border-black dark:border-white bg-brutal-lime text-black font-mono text-xs font-black uppercase shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                        SYSTEM SPECIFICATIONS // ARSENAL
+                    </span>
+                    <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight mt-3">
+                        TECHNICAL STACK
+                    </h2>
+                </div>
+                <p class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">
+                    &gt; PRODUCTION-BATTLE-TESTED TECHNOLOGIES (5+ YEARS)
+                </p>
+            </div>
+
+            <!-- Arsenal Matrix 6-Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Category 1: Languages -->
+                <div class="card-brutal p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                        <h3 class="font-display font-black text-xl uppercase flex items-center gap-2">
+                            <span class="w-3 h-3 bg-brutal-yellow border-2 border-black inline-block"></span>
+                            LANGUAGES
+                        </h3>
+                        <span class="font-mono text-xs font-bold text-neutral-500">01</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">TypeScript</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-yellow text-black shadow-[2px_2px_0_0_#000]">JavaScript (ESNext)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Go (Golang)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-cyan text-black shadow-[2px_2px_0_0_#000]">Java (8/11/17)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">PHP</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">SQL / PL-pgSQL</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Python 3.10+</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Backend & APIs -->
+                <div class="card-brutal p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                        <h3 class="font-display font-black text-xl uppercase flex items-center gap-2">
+                            <span class="w-3 h-3 bg-brutal-cyan border-2 border-black inline-block"></span>
+                            BACKEND &amp; APIS
+                        </h3>
+                        <span class="font-mono text-xs font-bold text-neutral-500">02</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-cyan text-black shadow-[2px_2px_0_0_#000]">Node.js</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Fastify REST API</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-lime text-black shadow-[2px_2px_0_0_#000]">Spring Boot</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Kafka Event Streaming</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Microservices Architecture</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Queue-Based Background Jobs</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Model Context Protocol (MCP)</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Frontend -->
+                <div class="card-brutal p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                        <h3 class="font-display font-black text-xl uppercase flex items-center gap-2">
+                            <span class="w-3 h-3 bg-brutal-lime border-2 border-black inline-block"></span>
+                            FRONTEND ARCHITECTURE
+                        </h3>
+                        <span class="font-mono text-xs font-bold text-neutral-500">03</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-lime text-black shadow-[2px_2px_0_0_#000]">React.js</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Next.js (App Router / SSR)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Observability Dashboards</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">HTML5 / CSS3 / Canvas</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Responsive &amp; Brutalist UI</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Databases -->
+                <div class="card-brutal p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                        <h3 class="font-display font-black text-xl uppercase flex items-center gap-2">
+                            <span class="w-3 h-3 bg-brutal-coral border-2 border-black inline-block"></span>
+                            DATABASES &amp; STORAGE
+                        </h3>
+                        <span class="font-mono text-xs font-bold text-neutral-500">04</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-coral text-white shadow-[2px_2px_0_0_#000]">PostgreSQL (Multi-tenant)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">MySQL</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">MongoDB</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">AWS DynamoDB</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">SQLite (NexusMem)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Redis Caching</span>
+                    </div>
+                </div>
+
+                <!-- Category 5: Cloud & Infrastructure -->
+                <div class="card-brutal p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                        <h3 class="font-display font-black text-xl uppercase flex items-center gap-2">
+                            <span class="w-3 h-3 bg-brutal-purple border-2 border-black inline-block"></span>
+                            CLOUD &amp; DEVOPS
+                        </h3>
+                        <span class="font-mono text-xs font-bold text-neutral-500">05</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-purple text-black shadow-[2px_2px_0_0_#000]">AWS (EC2, S3, Lambda)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">API Gateway &amp; CloudFront</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Hetzner Cloud Bare-Metal</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Docker Containerization</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">CI/CD Automation Pipelines</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Git Worktree Multiplexing</span>
+                    </div>
+                </div>
+
+                <!-- Category 6: Architecture & Practices -->
+                <div class="card-brutal p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+                        <h3 class="font-display font-black text-xl uppercase flex items-center gap-2">
+                            <span class="w-3 h-3 bg-neutral-900 border-2 border-black dark:border-white dark:bg-white inline-block"></span>
+                            SYSTEM DESIGN &amp; PRACTICES
+                        </h3>
+                        <span class="font-mono text-xs font-bold text-neutral-500">06</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">System Design (HLD / LLD)</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Multi-Tenant SaaS</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Distributed Observability</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">API Security &amp; Rate Limiting</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Agile / Scrum / Kanban</span>
+                        <span class="px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">Engineering Mentorship</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PROFESSIONAL EXPERIENCE TIMELINE -->
+    <section id="experience" class="py-16 md:py-24 px-4 md:px-8 border-b-4 border-black dark:border-white bg-white dark:bg-brutal-darkBg">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="pb-6 border-b-4 border-black dark:border-white flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="px-3 py-1 border-2 border-black dark:border-white bg-brutal-yellow text-black font-mono text-xs font-black uppercase shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                        CAREER LEDGER // VERIFIED ROLES
+                    </span>
+                    <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight mt-3">
+                        PROFESSIONAL EXPERIENCE
+                    </h2>
+                </div>
+                <div class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">
+                    &gt; 5+ YEARS OF PRODUCTION RECORD
+                </div>
+            </div>
+
+            <!-- Ledger Entries -->
+            <div class="space-y-8">
+                
+                <!-- Role 1: Tech Lead @ GeekAssured (Monitrue) -->
+                <div class="card-brutal p-6 md:p-8 relative">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b-2 border-black dark:border-white">
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <span class="px-2.5 py-1 bg-brutal-coral text-white font-mono text-xs font-black uppercase border border-black">
+                                    CURRENT ROLE
+                                </span>
+                                <h3 class="font-display font-black text-2xl md:text-3xl">Tech Lead</h3>
+                            </div>
+                            <p class="font-mono text-sm md:text-base font-bold text-neutral-700 dark:text-neutral-300 mt-1">
+                                GeekAssured — Gurugram, IN &nbsp;•&nbsp; <span class="text-brutal-coral dark:text-brutal-yellow">Monitrue (Multi-tenant SaaS Observability Platform)</span>
+                            </p>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope w-5 mr-4 text-gray-400"></i>
-                            <span>nishantshaligram@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fab fa-github w-5 mr-4 text-gray-400"></i>
-                            <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300">GitHub Profile</a>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fab fa-linkedin w-5 mr-4 text-gray-400"></i>
-                            <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300">LinkedIn Profile</a>
+                        <div class="font-mono text-xs md:text-sm font-black px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-yellow text-black shrink-0">
+                            JUNE 2025 – PRESENT
                         </div>
                     </div>
-                    <div class="mt-8">
-                        <h4 class="font-semibold mb-4">Languages</h4>
-                        <div class="flex space-x-3">
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">English</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Hindi</span>
-                            <span class="px-3 py-1 text-xs border border-gray-300 dark:border-dark-600 rounded-full">Gujarati</span>
+
+                    <ul class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-neutral-800 dark:text-neutral-200">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-coral font-bold mt-0.5">■</span>
+                            <span>Lead a 5-engineer team through the design, development, and deployment of <strong>Monitrue</strong>, a multi-tenant SaaS monitoring &amp; observability platform serving <strong>10,000 tenants across 12 distributed regions</strong>.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-coral font-bold mt-0.5">■</span>
+                            <span>Architected the core REST API in <strong>Fastify + TypeScript</strong> and built <strong>2 high-concurrency probing microservices in Go (Golang)</strong> for low-footprint, distributed infrastructure-monitoring agents.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-coral font-bold mt-0.5">■</span>
+                            <span>Engineered tenant-aware rate limiting sustaining <strong>40,000 requests/minute</strong>, scaling the core monolith and microservices horizontally across 12 regions without degrading availability.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-coral font-bold mt-0.5">■</span>
+                            <span>Designed multi-tenant <strong>PostgreSQL schemas</strong> enforcing strict tenant data isolation, sub-millisecond query performance, and schema extensibility as tenant count scaled to 10K.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-coral font-bold mt-0.5">■</span>
+                            <span>Own delivery end-to-end—from data ingestion pipelines through the <strong>Next.js/React observability dashboard</strong>—and run production infrastructure on <strong>Hetzner Cloud</strong> (deployment, scaling, uptime).</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-coral font-bold mt-0.5">■</span>
+                            <span>Drive engineering best practices via code reviews, system-design workshops, and mentoring—mentored 4 engineers and raised team-wide delivery consistency.</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 pt-4 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700 flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">FASTIFY</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">GO (GOLANG)</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">POSTGRESQL</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">NEXT.JS / REACT</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">HETZNER CLOUD</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">10K TENANTS</span>
+                    </div>
+                </div>
+
+                <!-- Role 2: Senior SDE @ GeekAssured (SyncBench) -->
+                <div class="card-brutal p-6 md:p-8 relative">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b-2 border-black dark:border-white">
+                        <div>
+                            <h3 class="font-display font-black text-2xl md:text-3xl">Senior Software Development Engineer</h3>
+                            <p class="font-mono text-sm md:text-base font-bold text-neutral-700 dark:text-neutral-300 mt-1">
+                                GeekAssured — Gurugram, IN &nbsp;•&nbsp; <span class="text-cyan-600 dark:text-brutal-cyan">SyncBench (E-Commerce &amp; Accounting Automation Platform)</span>
+                            </p>
+                        </div>
+                        <div class="font-mono text-xs md:text-sm font-black px-3 py-1.5 border-2 border-black dark:border-white bg-brutal-cyan text-black shrink-0">
+                            OCT 2023 – JUNE 2025
+                        </div>
+                    </div>
+
+                    <ul class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-neutral-800 dark:text-neutral-200">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-cyan font-bold mt-0.5">■</span>
+                            <span>Built a multi-tenant SaaS accounting-automation platform on <strong>Node.js and Java Spring Boot</strong>, scaling to <strong>80,000 users</strong> with tiered usage limits and real-time financial sync across QuickBooks, Xero, and Sage.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-cyan font-bold mt-0.5">■</span>
+                            <span>Engineered the platform to process <strong>80,000 orders/day</strong> of transaction and sync volume with reliable, consistent throughput.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-cyan font-bold mt-0.5">■</span>
+                            <span>Implemented <strong>Kafka-based async background processing</strong>, reducing latency by <strong>~40%</strong> and improving resilience without blocking critical user operations.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-cyan font-bold mt-0.5">■</span>
+                            <span>Defined microservices for licensing, subscription, and payment systems, balancing long-term scalability against near-term delivery timelines.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-brutal-cyan font-bold mt-0.5">■</span>
+                            <span>Developed <strong>React.js financial dashboards</strong>, bridging backend API development with full-stack feature delivery.</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 pt-4 border-t-2 border-dashed border-neutral-300 dark:border-neutral-700 flex flex-wrap gap-2 font-mono text-xs font-bold">
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">JAVA SPRING BOOT</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">NODE.JS</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">APACHE KAFKA</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">QUICKBOOKS / XERO / SAGE</span>
+                        <span class="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 border border-black dark:border-neutral-700">80K ORDERS/DAY</span>
+                    </div>
+                </div>
+
+                <!-- Role 3: Senior SDE @ Knovator Technologies -->
+                <div class="card-brutal p-6 md:p-8 relative">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b-2 border-black dark:border-white">
+                        <div>
+                            <h3 class="font-display font-black text-2xl md:text-3xl">Senior Software Development Engineer</h3>
+                            <p class="font-mono text-sm md:text-base font-bold text-neutral-700 dark:text-neutral-300 mt-1">
+                                Knovator Technologies Pvt. Ltd. — Surat, IN
+                            </p>
+                        </div>
+                        <div class="font-mono text-xs md:text-sm font-black px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shrink-0">
+                            JUNE 2021 – OCT 2023
+                        </div>
+                    </div>
+
+                    <ul class="mt-6 space-y-3 font-mono text-xs sm:text-sm text-neutral-800 dark:text-neutral-200">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-neutral-500 font-bold mt-0.5">■</span>
+                            <span>Led full-stack delivery across multiple client projects in Node.js, Java, React.js, and PHP, adapting the stack to each client's problem and constraints.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-neutral-500 font-bold mt-0.5">■</span>
+                            <span>Designed and consumed REST APIs, integrated payment gateways, and optimized query performance across PostgreSQL and MySQL.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-neutral-500 font-bold mt-0.5">■</span>
+                            <span>Acted as de facto Tech Lead on multiple client accounts—owning requirements, sprint planning, and end-to-end technical delivery to ensure client satisfaction.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-neutral-500 font-bold mt-0.5">■</span>
+                            <span>Built and maintained React.js frontends in close collaboration with designers and product stakeholders.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Role 4: Freelance Independent Developer -->
+                <div class="card-brutal p-6 md:p-8 relative">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b-2 border-black dark:border-white">
+                        <div>
+                            <h3 class="font-display font-black text-xl md:text-2xl">Freelance / Independent Developer</h3>
+                            <p class="font-mono text-sm font-bold text-neutral-700 dark:text-neutral-300 mt-1">
+                                Remote — Client Solutions (QuadLawTech)
+                            </p>
+                        </div>
+                        <div class="font-mono text-xs md:text-sm font-black px-3 py-1.5 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white shrink-0">
+                            2019 – 2021
+                        </div>
+                    </div>
+
+                    <ul class="mt-4 space-y-2 font-mono text-xs sm:text-sm text-neutral-800 dark:text-neutral-200">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-neutral-500 font-bold mt-0.5">■</span>
+                            <span>Delivered freelance full-stack and cloud-deployment work while completing intensive skill upgrades in system design, cloud infrastructure, and TypeScript.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-neutral-500 font-bold mt-0.5">■</span>
+                            <span>Deployed and configured a client's FastAPI (Python) backend on AWS for QuadLawTech (quadlawtech.com)—provisioning compute, API Gateway, and CI/CD pipelines.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prior Foundations: Cirkle Studio & HTTP Web Solutions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card-brutal p-5">
+                        <div class="font-mono text-xs text-neutral-500">SEP 2018 – MAY 2019</div>
+                        <h4 class="font-display font-bold text-lg mt-1">WordPress Developer</h4>
+                        <p class="font-mono text-xs text-neutral-600 dark:text-neutral-400">Cirkle Studio Pvt. Ltd., Surat, IN</p>
+                        <p class="font-mono text-xs mt-2 text-neutral-700 dark:text-neutral-300">Customized WordPress plugins and themes to client specifications; delivered responsive, maintainable websites with ongoing support.</p>
+                    </div>
+                    <div class="card-brutal p-5">
+                        <div class="font-mono text-xs text-neutral-500">NOV 2017 – MAR 2018</div>
+                        <h4 class="font-display font-bold text-lg mt-1">Web Developer</h4>
+                        <p class="font-mono text-xs text-neutral-600 dark:text-neutral-400">HTTP Web Solutions, Surat, IN</p>
+                        <p class="font-mono text-xs mt-2 text-neutral-700 dark:text-neutral-300">Built PHP CodeIgniter applications, improving performance, responsiveness, and scalability across client web projects.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT & CONNECT TERMINAL -->
+    <section id="contact" class="py-16 md:py-24 px-4 md:px-8 border-b-4 border-black dark:border-white bg-brutal-bg dark:bg-brutal-darkBg">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="pb-6 border-b-4 border-black dark:border-white flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="px-3 py-1 border-2 border-black dark:border-white bg-brutal-coral text-white font-mono text-xs font-black uppercase shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                        TERMINAL DISPATCH // PROTOCOL: OPEN
+                    </span>
+                    <h2 class="font-display font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight mt-3">
+                        INITIATE CONTACT
+                    </h2>
+                </div>
+                <p class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">
+                    &gt; READY FOR TECHNICAL LEADERSHIP &amp; ARCHITECTURAL CHALLENGES
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Left 5 cols: Direct Contact Chips -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="card-brutal p-6 space-y-5">
+                        <h3 class="font-display font-black text-2xl uppercase border-b-2 border-black dark:border-white pb-3">
+                            DIRECT CHANNELS
+                        </h3>
+
+                        <!-- Email -->
+                        <div class="p-3 border-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800 flex items-center justify-between">
+                            <div class="truncate">
+                                <div class="font-mono text-[10px] uppercase font-bold text-neutral-500">EMAIL ADDRESS</div>
+                                <div class="font-mono text-xs sm:text-sm font-extrabold truncate">nishant.shaligram@gmail.com</div>
+                            </div>
+                            <button onclick="copyToClipboard('nishant.shaligram@gmail.com', 'Email copied!')" class="ml-2 px-2.5 py-1 bg-brutal-yellow text-black font-mono font-bold text-xs border border-black hover:brightness-105 active:scale-95 shrink-0">
+                                COPY
+                            </button>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="p-3 border-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800 flex items-center justify-between">
+                            <div>
+                                <div class="font-mono text-[10px] uppercase font-bold text-neutral-500">PHONE / WHATSAPP</div>
+                                <div class="font-mono text-xs sm:text-sm font-extrabold">+91 70163 22161</div>
+                            </div>
+                            <button onclick="copyToClipboard('+917016322161', 'Phone number copied!')" class="ml-2 px-2.5 py-1 bg-brutal-cyan text-black font-mono font-bold text-xs border border-black hover:brightness-105 active:scale-95 shrink-0">
+                                COPY
+                            </button>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="p-3 border-2 border-black dark:border-white bg-neutral-100 dark:bg-neutral-800">
+                            <div class="font-mono text-[10px] uppercase font-bold text-neutral-500">BASE LOCATION</div>
+                            <div class="font-mono text-xs sm:text-sm font-extrabold">Gurugram, IN • Open to relocation (Vadodara)</div>
+                        </div>
+
+                        <!-- Links -->
+                        <div class="pt-3 grid grid-cols-2 gap-3 font-mono text-xs font-bold">
+                            <a href="https://www.linkedin.com/in/nishant-shaligram/" target="_blank" rel="noopener noreferrer" class="p-3 border-2 border-black dark:border-white bg-[#0A66C2] text-white flex items-center justify-between shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] hover:translate-x-0.5 hover:translate-y-0.5">
+                                <span><i class="fab fa-linkedin mr-1"></i> LINKEDIN</span>
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="p-3 border-2 border-black dark:border-white bg-white dark:bg-brutal-darkCard text-black dark:text-white flex items-center justify-between shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] hover:translate-x-0.5 hover:translate-y-0.5">
+                                <span><i class="fab fa-github mr-1"></i> GITHUB</span>
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Spoken Languages -->
+                    <div class="p-5 border-3 border-black dark:border-white bg-brutal-yellow text-black shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#FFF]">
+                        <h4 class="font-display font-black text-lg uppercase">SPOKEN LANGUAGES</h4>
+                        <div class="flex gap-2 mt-2 font-mono text-xs font-bold">
+                            <span class="px-2 py-1 bg-white border border-black">ENGLISH (PROFESSIONAL)</span>
+                            <span class="px-2 py-1 bg-white border border-black">HINDI (NATIVE)</span>
+                            <span class="px-2 py-1 bg-white border border-black">GUJARATI (NATIVE)</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="fade-in">
-                    <form id="contact-form" class="space-y-6 text-left">
-                        <div>
-                            <input type="text" id="name" name="name" placeholder="Name" required
-                                class="w-full px-4 py-3 border border-gray-300 dark:border-dark-600 bg-transparent focus:outline-none focus:border-black dark:focus:border-white theme-transition">
+                <!-- Right 7 cols: Interactive Message Dispatcher Form -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm" class="card-brutal p-6 md:p-8 space-y-5">
+                        <div class="flex items-center justify-between pb-3 border-b-2 border-black dark:border-white">
+                            <h3 class="font-display font-black text-2xl uppercase">TRANSMIT MESSAGE</h3>
+                            <span class="font-mono text-xs font-bold text-neutral-500">MAILTO PROTOCOL</span>
                         </div>
-                        <div>
-                            <input type="email" id="email" name="email" placeholder="Email" required
-                                class="w-full px-4 py-3 border border-gray-300 dark:border-dark-600 bg-transparent focus:outline-none focus:border-black dark:focus:border-white theme-transition">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5 font-mono text-xs font-bold">
+                                <label for="formName" class="block">YOUR NAME *</label>
+                                <input type="text" id="formName" required placeholder="e.g. Alex Vance" class="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-brutal-yellow shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                            </div>
+
+                            <div class="space-y-1.5 font-mono text-xs font-bold">
+                                <label for="formEmail" class="block">YOUR EMAIL *</label>
+                                <input type="email" id="formEmail" required placeholder="e.g. alex@company.com" class="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-brutal-yellow shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
+                            </div>
                         </div>
-                        <div>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required
-                                class="w-full px-4 py-3 border border-gray-300 dark:border-dark-600 bg-transparent focus:outline-none focus:border-black dark:focus:border-white theme-transition">
+
+                        <div class="space-y-1.5 font-mono text-xs font-bold">
+                            <label for="formSubject" class="block">SUBJECT *</label>
+                            <input type="text" id="formSubject" required placeholder="e.g. Lead Engineer Role / NexusPilot Collaboration" class="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-brutal-yellow shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF]">
                         </div>
-                        <div>
-                            <textarea id="message" name="message" rows="5" placeholder="Message" required
-                                class="w-full px-4 py-3 border border-gray-300 dark:border-dark-600 bg-transparent focus:outline-none focus:border-black dark:focus:border-white resize-none theme-transition"></textarea>
+
+                        <div class="space-y-1.5 font-mono text-xs font-bold">
+                            <label for="formMessage" class="block">MESSAGE DIRECTIVE *</label>
+                            <textarea id="formMessage" rows="5" required placeholder="Outline the opportunity, scope, or technical topic..." class="w-full p-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-brutal-yellow shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#FFF] resize-none"></textarea>
                         </div>
-                        <button type="submit"
-                            class="w-full py-3 bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
-                            Send Message
+
+                        <button type="submit" class="btn-brutal w-full py-4 bg-brutal-lime text-black text-sm md:text-base">
+                            <i class="fas fa-paper-plane mr-2"></i> DISPATCH MESSAGE (OPEN EMAIL CLIENT)
                         </button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 dark:border-dark-700 py-8 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-sm text-gray-600 dark:text-gray-400">&copy; 2024 Nishant Shaligram. All rights reserved.</p>
+    <!-- BRUTALIST FOOTER -->
+    <footer class="py-12 px-4 md:px-8 bg-black text-white font-mono text-xs border-t-4 border-black dark:border-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="space-y-1 text-center md:text-left">
+                <div class="font-display font-black text-lg text-brutal-yellow">
+                    NISHANT SHALIGRAM // SYSTEM ONLINE
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-black dark:hover:text-white transition-colors">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="text-neutral-400">
+                    Lead Engineer &amp; Full Stack Architect • Architect of NexusPilot Suite
+                </div>
+                <div class="text-neutral-500 text-[11px] pt-1">
+                    &copy; 2026 Nishant Shaligram. Built with Modern Brutalism UI &amp; Tailwind CSS.
                 </div>
             </div>
+
+            <!-- Social Links & Back to Top -->
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/nishantshaligram" target="_blank" rel="noopener noreferrer" class="p-2.5 border-2 border-white bg-neutral-900 hover:bg-brutal-yellow hover:text-black transition-colors" aria-label="GitHub">
+                    <i class="fab fa-github text-base"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/nishant-shaligram/" target="_blank" rel="noopener noreferrer" class="p-2.5 border-2 border-white bg-[#0A66C2] hover:brightness-110 transition-all" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in text-base"></i>
+                </a>
+                <a href="mailto:nishant.shaligram@gmail.com" class="p-2.5 border-2 border-white bg-neutral-900 hover:bg-brutal-cyan hover:text-black transition-colors" aria-label="Email">
+                    <i class="fas fa-envelope text-base"></i>
+                </a>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-2.5 border-2 border-white bg-brutal-yellow text-black font-bold hover:brightness-105 active:scale-95" aria-label="Back to top">
+                    <i class="fas fa-arrow-up text-base"></i>
+                </button>
+            </div>
+
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all opacity-0 pointer-events-none">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 border-3 border-black bg-brutal-yellow text-black font-mono text-xs font-black px-4 py-3 shadow-[4px_4px_0_0_#000]">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-check-circle text-base"></i>
+            <span id="toastMessage">ACTION COMPLETED</span>
+        </div>
+    </div>
 
+    <!-- CLIENT LOGIC & INTERACTIONS SCRIPT -->
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        // 1. Theme Toggle Engine
         const html = document.documentElement;
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
+        // Initialize Theme from localStorage or system preference
+        const savedTheme = localStorage.getItem('ns_theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             html.classList.add('dark');
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        } else {
+            html.classList.remove('dark');
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         }
 
-        function toggleTheme() {
+        themeBtn?.addEventListener('click', () => {
             html.classList.toggle('dark');
             const isDark = html.classList.contains('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
-
-        // Typing animation
-        const typingText = document.getElementById('typing-text');
-        const texts = ['Backend Developer', 'Java Expert', 'Spring Boot Specialist', 'API Designer', 'Microservices Architect'];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeWriter() {
-            const currentText = texts[textIndex];
+            localStorage.setItem('ns_theme', isDark ? 'dark' : 'light');
             
-            if (isDeleting) {
-                typingText.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
+            if (themeIcon) {
+                if (isDark) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+            showToast(isDark ? 'BRUTAL DARK MODE ACTIVE' : 'BRUTAL LIGHT MODE ACTIVE');
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuToggle?.addEventListener('click', () => {
+            mobileMenu?.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu?.classList.add('hidden');
+            });
+        });
+
+        // 3. Project Filtering Logic
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const filterBtns = document.querySelectorAll('.project-filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.classList.remove('bg-brutal-yellow', 'text-black');
+                btn.classList.add('bg-white', 'dark:bg-brutal-darkCard', 'text-black', 'dark:text-white');
+            });
+
+            const activeBtn = event?.currentTarget;
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'dark:bg-brutal-darkCard', 'text-black', 'dark:text-white');
+                activeBtn.classList.add('bg-brutal-yellow', 'text-black');
             }
 
-            if (!isDeleting && charIndex === currentText.length) {
-                setTimeout(() => isDeleting = true, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-            }
-
-            setTimeout(typeWriter, isDeleting ? 50 : 100);
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else if (card.id === `project-${category}`) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
         }
 
-        // Start typing animation
-        typeWriter();
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        // 4. Interactive Toast & Copy To Clipboard
+        function copyToClipboard(text, customMessage) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(customMessage || 'COPIED TO CLIPBOARD');
+            }).catch(err => {
+                showToast('COPY FAILED');
             });
-        });
+        }
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        function showToast(message) {
+            const toast = document.getElementById('toastNotification');
+            const msgSpan = document.getElementById('toastMessage');
+            if (!toast || !msgSpan) return;
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+            msgSpan.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Skill bars animation
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-bar');
-                    skillBars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        setTimeout(() => {
-                            bar.style.width = width + '%';
-                        }, 500);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-item').forEach(el => {
-            skillObserver.observe(el);
-        });
-
-        // Back to top button
-        const backToTopBtn = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.style.opacity = '1';
-                backToTopBtn.style.pointerEvents = 'auto';
-            } else {
-                backToTopBtn.style.opacity = '0';
-                backToTopBtn.style.pointerEvents = 'none';
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Contact form handling
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        // 5. Contact Form Mailto Generation
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Create mailto link
-            const mailtoLink = `mailto:nishantshaligram@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Reset form
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const subject = document.getElementById('formSubject').value;
+            const message = document.getElementById('formMessage').value;
+
+            const fullBody = `Name: ${name}\nEmail: ${email}\n\nMessage Directive:\n${message}`;
+            const mailtoUrl = `mailto:nishant.shaligram@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullBody)}`;
+
+            window.location.href = mailtoUrl;
+            showToast('DISPATCHING TO MAIL CLIENT...');
             this.reset();
-            
-            // Show success message
-            alert('Thank you for your message! Your email client should open now.');
-        });
-
-        // Active navigation highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
         });
     </script>
 </body>
