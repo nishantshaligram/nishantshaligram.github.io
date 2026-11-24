@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Flagship Lead Agent Gradient (Vibrant Mint to Emerald) -->
+    <linearGradient id="p_fl_leadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#00ffa3" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Reviewer & Verifier Wingman Gradient (Cyan to Blue) -->
+    <linearGradient id="p_fl_wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Support Runner Gradient (Purple to Violet) -->
+    <linearGradient id="p_fl_supportGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+
+    <!-- DAG Beam Gradient -->
+    <linearGradient id="p_fl_beamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffa3" />
+      <stop offset="50%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <!-- Swarm Energy Radial Field -->
+    <radialGradient id="p_fl_swarmPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ffa3" stop-opacity="0.35" />
+      <stop offset="55%" stop-color="#00d2ff" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#070b14" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Ambient Glow Filter -->
+    <filter id="p_fl_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Drop Shadow for universal background contrast -->
+    <filter id="p_fl_shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <g filter="url(#p_fl_shadow)">
+    <!-- 1. Swarm Energy Radial Field -->
+    <circle cx="256" cy="265" r="160" fill="url(#p_fl_swarmPulse)" />
+
+    <!-- 2. Two-Key Consensus Rings (The Verification Gate) -->
+    <circle cx="256" cy="265" r="128" fill="none" stroke="#00ffa3" stroke-width="2" stroke-dasharray="8 6" stroke-opacity="0.4" />
+    <circle cx="256" cy="265" r="76" fill="none" stroke="#00d2ff" stroke-width="1.6" stroke-dasharray="12 8" stroke-opacity="0.5" />
+
+    <!-- 3. DAG Dependency Constellation Network Lines -->
+    <g stroke="url(#p_fl_beamGrad)" stroke-width="2.4" opacity="0.8" stroke-dasharray="6 4" stroke-linecap="round">
+      <line x1="256" y1="165" x2="155" y2="255" />
+      <line x1="256" y1="165" x2="357" y2="255" />
+      <line x1="155" y1="255" x2="195" y2="365" />
+      <line x1="357" y1="255" x2="317" y2="365" />
+      <line x1="195" y1="365" x2="317" y2="365" />
+      <line x1="155" y1="255" x2="357" y2="255" stroke-dasharray="3 3" opacity="0.5" />
+    </g>
+
+    <!-- 4. Multi-Agent Chevron Armada Formation -->
+    <g filter="url(#p_fl_glow)">
+      <!-- Agent 1: Flagship Lead Agent (Author Node - Top Center) -->
+      <polygon points="256,105 296,185 256,168 216,185" 
+               fill="url(#p_fl_leadGrad)" 
+               stroke="#ffffff" 
+               stroke-width="2.8" 
+               stroke-linejoin="round" />
+      <circle cx="256" cy="155" r="5" fill="#ffffff" />
+      <circle cx="256" cy="155" r="2.5" fill="#059669" />
+
+      <!-- Agent 2: Reviewer Wingman (Left Node - Key 1) -->
+      <polygon points="155,215 190,285 155,270 120,285" 
+               fill="url(#p_fl_wingGrad)" 
+               stroke="#ffffff" 
+               stroke-width="2.4" 
+               stroke-linejoin="round" />
+      <circle cx="155" cy="255" r="4.5" fill="#ffffff" />
+      <circle cx="155" cy="255" r="2" fill="#0284c7" />
+
+      <!-- Agent 3: Verifier Wingman (Right Node - Key 2) -->
+      <polygon points="357,215 392,285 357,270 322,285" 
+               fill="url(#p_fl_wingGrad)" 
+               stroke="#ffffff" 
+               stroke-width="2.4" 
+               stroke-linejoin="round" />
+      <circle cx="357" cy="255" r="4.5" fill="#ffffff" />
+      <circle cx="357" cy="255" r="2" fill="#0284c7" />
+
+      <!-- Agent 4: Support Worktree Runner 1 (Rear Left) -->
+      <polygon points="195,335 224,395 195,382 166,395" 
+               fill="url(#p_fl_supportGrad)" 
+               stroke="#ffffff" 
+               stroke-width="2" 
+               stroke-linejoin="round" />
+      <circle cx="195" cy="365" r="4" fill="#ffffff" />
+
+      <!-- Agent 5: Support Worktree Runner 2 (Rear Right) -->
+      <polygon points="317,335 346,395 317,382 288,395" 
+               fill="url(#p_fl_supportGrad)" 
+               stroke="#ffffff" 
+               stroke-width="2" 
+               stroke-linejoin="round" />
+      <circle cx="317" cy="365" r="4" fill="#ffffff" />
+
+      <!-- 5. Consensus Synchronization Core Nexus -->
+      <circle cx="256" cy="265" r="8.5" fill="#ffffff" />
+      <circle cx="256" cy="265" r="15" fill="none" stroke="#00ffa3" stroke-width="2.5" />
+    </g>
+
+    <!-- 6. High-Frequency Quantum Data Pulses -->
+    <circle cx="205" cy="210" r="3.5" fill="#00ffa3" />
+    <circle cx="307" cy="210" r="3.5" fill="#00ffa3" />
+    <circle cx="175" cy="310" r="3.5" fill="#38bdf8" />
+    <circle cx="337" cy="310" r="3.5" fill="#38bdf8" />
+    <circle cx="256" cy="365" r="3.5" fill="#c084fc" />
+  </g>
+</svg>

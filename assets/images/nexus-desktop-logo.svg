@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Cyan to Deep Cobalt Primary Gradient -->
+    <linearGradient id="p_dt_cursor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="25%" stop-color="#38bdf8" />
+      <stop offset="70%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Wing Left Gradient -->
+    <linearGradient id="p_dt_wingL" x1="100%" y1="50%" x2="0%" y2="50%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Wing Right Gradient -->
+    <linearGradient id="p_dt_wingR" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Monitor Rim Gradient -->
+    <linearGradient id="p_dt_monitorRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- Ambient Glow Filter -->
+    <filter id="p_dt_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Subtle Drop Shadow for elements on transparent backgrounds -->
+    <filter id="p_dt_shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Group with subtle drop shadow for crisp visibility on any background -->
+  <g filter="url(#p_dt_shadow)">
+    <!-- 1. Coordinate Actuation Grid (Subtle) -->
+    <g stroke="#0284c7" stroke-width="1.2" stroke-opacity="0.22">
+      <line x1="86" y1="186" x2="426" y2="186" stroke-dasharray="4 6" />
+      <line x1="86" y1="256" x2="426" y2="256" stroke-dasharray="4 6" />
+      <line x1="86" y1="326" x2="426" y2="326" stroke-dasharray="4 6" />
+      <line x1="186" y1="86" x2="186" y2="426" stroke-dasharray="4 6" />
+      <line x1="256" y1="86" x2="256" y2="426" stroke-dasharray="4 6" />
+      <line x1="326" y1="86" x2="326" y2="426" stroke-dasharray="4 6" />
+    </g>
+
+    <!-- 2. Dual Radar Rings (UIA Kinematic Scan Range) -->
+    <circle cx="256" cy="256" r="165" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8 8" stroke-opacity="0.3" />
+    <circle cx="256" cy="256" r="115" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="14 10" stroke-opacity="0.4" />
+
+    <!-- 3. Aeronautical Supersonic Wings -->
+    <path d="M 230 256 L 76 196 L 132 256 L 82 284 L 230 270 Z" fill="url(#p_dt_wingL)" />
+    <path d="M 220 256 L 102 218 L 144 256 Z" fill="#38bdf8" fill-opacity="0.75" />
+    <path d="M 282 256 L 436 196 L 380 256 L 430 284 L 282 270 Z" fill="url(#p_dt_wingR)" />
+    <path d="M 292 256 L 410 218 L 368 256 Z" fill="#38bdf8" fill-opacity="0.75" />
+
+    <!-- 4. Desktop Display Viewport Frame -->
+    <!-- Glassmorphic Body -->
+    <rect x="136" y="136" width="240" height="164" rx="18" fill="#0f172a" fill-opacity="0.78" stroke="url(#p_dt_monitorRim)" stroke-width="3.5" />
+    
+    <!-- Window Header Titlebar -->
+    <path d="M 137.75 154 A 16.25 16.25 0 0 1 154 137.75 L 358 137.75 A 16.25 16.25 0 0 1 374.25 154 L 374.25 166 L 137.75 166 Z" fill="#1e293b" fill-opacity="0.9" />
+    <line x1="136" y1="166" x2="376" y2="166" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.4" />
+    
+    <!-- Control Dots (Traffic Lights) -->
+    <circle cx="158" cy="152" r="5" fill="#ef4444" />
+    <circle cx="174" cy="152" r="5" fill="#f59e0b" />
+    <circle cx="190" cy="152" r="5" fill="#10b981" />
+
+    <!-- Monitor Stand & Base -->
+    <path d="M 242 300 L 236 334 L 218 334 L 294 334 L 276 334 L 270 300 Z" fill="#334155" stroke="#1e293b" stroke-width="1.5" />
+    <rect x="206" y="332" width="100" height="7" rx="3.5" fill="#64748b" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4" />
+
+    <!-- 5. Precision Pilot Cursor & Laser Kinematics -->
+    <g transform="translate(230, 192)" filter="url(#p_dt_glow)">
+      <!-- Laser Actuation Exhaust Trail -->
+      <path d="M 26 58 L 26 88" stroke="#f43f5e" stroke-width="4.5" stroke-linecap="round" stroke-opacity="0.95" />
+      <path d="M 18 58 L 8 78" stroke="#f43f5e" stroke-width="2.8" stroke-linecap="round" stroke-opacity="0.7" />
+      <path d="M 34 58 L 44 78" stroke="#f43f5e" stroke-width="2.8" stroke-linecap="round" stroke-opacity="0.7" />
+
+      <!-- Supersonic Arrow Body -->
+      <path d="M 26 0 L 60 66 L 32 55 L 26 80 L 20 55 L -8 66 Z" 
+            fill="url(#p_dt_cursor)" 
+            stroke="#ffffff" 
+            stroke-width="2.8" 
+            stroke-linejoin="round" />
+      
+      <!-- Core Coordinate Lock Point -->
+      <circle cx="26" cy="24" r="5.5" fill="#ffffff" />
+      <circle cx="26" cy="24" r="2.5" fill="#0284c7" />
+    </g>
+
+    <!-- 6. Corner Actuation Boundary Coordinates -->
+    <circle cx="136" cy="136" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="376" cy="136" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="136" cy="300" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+    <circle cx="376" cy="300" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+
+    <!-- 7. Optical Targeting Reticle (Sub-30ms Precision Lock) -->
+    <g transform="translate(398, 108)">
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="5 5" stroke-opacity="0.85" />
+      <line x1="-12" y1="0" x2="12" y2="0" stroke="#f43f5e" stroke-width="2.4" stroke-linecap="round" />
+      <line x1="0" y1="-12" x2="0" y2="12" stroke="#f43f5e" stroke-width="2.4" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="3" fill="#ffffff" />
+    </g>
+  </g>
+</svg>
